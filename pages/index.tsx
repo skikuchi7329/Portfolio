@@ -7,7 +7,7 @@ import  Layout  from '../components/layout'
 
 export default function Home() {
   return (
-    <Layout title="Portfolio" description="about me">
+    <Layout title="Portfolio" description="about">
       <p>welcome to my blog</p>
     </Layout>
   )
