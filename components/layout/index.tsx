@@ -22,9 +22,9 @@ export default function Layout({ children, title, description }: Props) {
         <title>{ pageTitle }</title>
         <meta name="description" content={ description || 'my blog'} />
       </Head>
-        <Header />
-        <About />
-        <Footer />
+      <Header />
+      <About />
+      <Footer />
     </div>
   );
-}
+};

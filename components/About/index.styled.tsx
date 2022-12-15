@@ -15,12 +15,13 @@ const StyldAbout = styled.div`
       
       li {
         line-height: 2;
-      }
-    }
+      };
+    };
   };
+  
   .profileIcon {
     margin: 0 auto;
-  }
+  };
 `;
 
 export default StyldAbout;
