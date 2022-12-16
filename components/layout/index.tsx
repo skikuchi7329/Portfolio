@@ -12,8 +12,6 @@ type Props = {
   description?: string;
 };
 
-const name: string = "Shohei Kikuchi";
-
 export default function Layout({ children, title, description }: Props) {
   const pageTitle = title || "my blog";
   return (
