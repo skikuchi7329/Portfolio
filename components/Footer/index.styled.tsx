@@ -7,8 +7,8 @@ const StyledFooter = styled.footer`
     align-items: center;
     a {
       margin: 0 10px;
-    }
-  }
+    };
+  };
 `;
 
 export default StyledFooter;

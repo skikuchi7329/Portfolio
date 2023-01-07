@@ -10,11 +10,18 @@ const StyldAbout = styled.div`
       border-bottom: 1px double black;
     };
 
-    ul {
-      list-style: none;
-      
-      li {
-        line-height: 2;
+    table {
+      display: flex;
+      justify-content: center;
+      thead {
+        th {
+          margin: 10px;
+        };
+      };
+      tbody {
+        tr {
+          margin: 10px;
+        };
       };
     };
   };
