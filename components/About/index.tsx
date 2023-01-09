@@ -1,8 +1,11 @@
+import fs from "fs";
+import path from "path";
+import data from "../../data.json"
 import Image from "next/image";
 import  StyledAbout from "./index.styled";
 
 const About = () => {
-  const name = 'Shohei Kikuchi';
+
   return(
     <StyledAbout>
       <div className="about">
@@ -25,13 +28,20 @@ const About = () => {
           </thead>
           <tbody>
             <tr>
-              <td>{name}</td>
+              <td>{data.about.name}</td>
             </tr>
             <tr>
-              <td>東京理科大学理学部第二部数学科</td>
+              <td>{data.about.carrier}</td>
             </tr>
             <tr>
-              <td>プログラミング学習、お酒、ゲーム、アニメ、麻雀、温泉</td>
+              <td>
+                {data.about.hobby[1]} &nbsp; 
+                {data.about.hobby[2]}&nbsp; 
+                {data.about.hobby[3]} &nbsp; 
+                {data.about.hobby[4]} &nbsp; 
+                {data.about.hobby[5]} &nbsp; 
+                {data.about.hobby[6]} &nbsp; 
+              </td>
             </tr>
             <tr>
               <td>JavaScript</td>
