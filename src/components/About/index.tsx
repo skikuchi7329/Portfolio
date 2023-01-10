@@ -1,15 +1,24 @@
 import fs from "fs";
 import path from "path";
-import data from "../../data.json"
+import data from "../../../data.json";
 import Image from "next/image";
-import  StyledAbout from "./index.styled";
+import StyledAbout from "./index.styled";
 
 const About = () => {
-
-  return(
+  const hobbies = data.about.hobby;
+  const hobbyObj = () => {
+    for (let i = 0; i < hobbies.length; i++) {}
+  };
+  return (
     <StyledAbout>
       <div className="about">
-        <Image  className="profileIcon" alt="profile" src='/images/profile.png' width={50} height={50}></Image>
+        <Image
+          className="profileIcon"
+          alt="profile"
+          src="/images/profile.png"
+          width={50}
+          height={50}
+        ></Image>
         <h2>自己紹介</h2>
         <table>
           <thead>
@@ -35,12 +44,12 @@ const About = () => {
             </tr>
             <tr>
               <td>
-                {data.about.hobby[1]} &nbsp; 
-                {data.about.hobby[2]}&nbsp; 
-                {data.about.hobby[3]} &nbsp; 
-                {data.about.hobby[4]} &nbsp; 
-                {data.about.hobby[5]} &nbsp; 
-                {data.about.hobby[6]} &nbsp; 
+                {data.about.hobby[1]} &nbsp;
+                {data.about.hobby[2]}&nbsp;
+                {data.about.hobby[3]} &nbsp;
+                {data.about.hobby[4]} &nbsp;
+                {data.about.hobby[5]} &nbsp;
+                {data.about.hobby[6]} &nbsp;
               </td>
             </tr>
             <tr>
@@ -48,7 +57,7 @@ const About = () => {
             </tr>
           </tbody>
         </table>
-    </div>
+      </div>
     </StyledAbout>
   );
 };
