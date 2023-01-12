@@ -6,8 +6,10 @@ import StyledAbout from "./index.styled";
 
 const About = () => {
   const hobbies = data.about.hobby;
-  const hobbyObj = () => {
-    for (let i = 0; i < hobbies.length; i++) {}
+  const hobbyObj: any = () => {
+    for (let i = 0; i < hobbies.length; i++) {
+      data.about.hobby[i];
+    }
   };
   return (
     <StyledAbout>
@@ -44,12 +46,13 @@ const About = () => {
             </tr>
             <tr>
               <td>
-                {data.about.hobby[1]} &nbsp;
+                {hobbyObj()}
+                {/* {data.about.hobby[1]} &nbsp;
                 {data.about.hobby[2]}&nbsp;
                 {data.about.hobby[3]} &nbsp;
                 {data.about.hobby[4]} &nbsp;
                 {data.about.hobby[5]} &nbsp;
-                {data.about.hobby[6]} &nbsp;
+                {data.about.hobby[6]} &nbsp; */}
               </td>
             </tr>
             <tr>
