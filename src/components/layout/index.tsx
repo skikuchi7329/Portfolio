@@ -15,7 +15,7 @@ type Props = {
 export default function Layout({ children, title, description }: Props) {
   const pageTitle = title || "my blog";
   return (
-    <div className={styles.contaner}>
+    <div className={styles.container}>
       <Head> 
         <title>{ pageTitle }</title>
         <meta name="description" content={ description || 'my blog'} />
