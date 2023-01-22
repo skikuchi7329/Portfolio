@@ -3,14 +3,11 @@ import path from "path";
 import data from "../../../data.json";
 import Image from "next/image";
 import StyledAbout from "./index.styled";
+import { isConstructorDeclaration } from "typescript";
 
 const About = () => {
   const hobbies = data.about.hobby;
-  const hobbyObj: any = () => {
-    for (let i = 0; i < hobbies.length; i++) {
-      data.about.hobby[i];
-    }
-  };
+
   return (
     <StyledAbout>
       <div className="about">
@@ -46,13 +43,7 @@ const About = () => {
             </tr>
             <tr>
               <td>
-                {hobbyObj()}
-                {/* {data.about.hobby[1]} &nbsp;
-                {data.about.hobby[2]}&nbsp;
-                {data.about.hobby[3]} &nbsp;
-                {data.about.hobby[4]} &nbsp;
-                {data.about.hobby[5]} &nbsp;
-                {data.about.hobby[6]} &nbsp; */}
+                {hobbies}        
               </td>
             </tr>
             <tr>
