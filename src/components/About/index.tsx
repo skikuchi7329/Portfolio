@@ -42,9 +42,7 @@ const About = () => {
               <td>{data.about.carrier}</td>
             </tr>
             <tr>
-              <td>
-                {hobbies}        
-              </td>
+              <td>{hobbies}</td>
             </tr>
             <tr>
               <td>JavaScript</td>
