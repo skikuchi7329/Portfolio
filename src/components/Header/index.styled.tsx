@@ -6,6 +6,12 @@ const StyledHeader = styled.header`
     flex-direction: column;
     align-items: center;
   };
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
 `;
 
 export { StyledHeader };
