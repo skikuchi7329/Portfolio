@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./layout.module.css";
 import  Header  from "../Header/index";
-import Footer from "../Footer/idenx";
+import Footer from "../Footer";
 import About from "../About/index";
 
 type Props = {
