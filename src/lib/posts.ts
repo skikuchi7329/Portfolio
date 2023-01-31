@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 import unified from 'unified'
 import markdown from 'remark-parse'
 import remark2rehype from 'remark-rehype'
-import stringify from 'rehype-stringify'
+//import stringify from 'rehype-stringify'
 
 const POSTS_DIRECTORIES = path.join(process.cwd(), 'posts')
 
@@ -38,7 +38,7 @@ export async function getPostData(id: string): Promise<Post> {
   const processedContent = await unified()
     .use(markdown)
     .use(remark2rehype)
-    .use(stringify)
+    //.use(stringify)
     .process(matterResult.content)
   const content = processedContent.toString()
 

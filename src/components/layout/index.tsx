@@ -5,6 +5,7 @@ import styles from "./layout.module.css";
 import  Header  from "../Header/index";
 import Footer from "../Footer";
 import About from "../About/index";
+import Articles from "../Articles";
 
 type Props = {
   children?: React.ReactNode;
@@ -22,6 +23,7 @@ export default function Layout({ children, title, description }: Props) {
       </Head>
       <Header />
       <About />
+      <Articles />
       <Footer />
     </div>
   );
