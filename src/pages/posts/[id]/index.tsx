@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const dummyData = {
+export const dummyData = {
   1:{
     title: 'id1のtitle',
     content: 'id1のcontext',
@@ -43,4 +43,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 
-export default Post
+export default Post;

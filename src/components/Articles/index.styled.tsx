@@ -7,9 +7,13 @@ const StyledArticles = styled.div`
   .title {
     margin: 10px auto;
   }
-  .summary {
+  .content {
     margin: 10px auto;
     font-size: 18px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 
