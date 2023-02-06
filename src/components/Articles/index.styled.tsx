@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledArticles = styled.div`
+const StyledArticle = styled.div`
   width: 100%;
   display: block;
   text-align: center;
@@ -13,8 +13,8 @@ const StyledArticles = styled.div`
   }
   a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
   }
 `;
 
-export default StyledArticles;
+export default StyledArticle;

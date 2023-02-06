@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
   
   a {
     text-decoration: none;
-    color: black;
+    color: whitesmoke;
   }
 
 `;
