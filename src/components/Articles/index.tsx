@@ -9,7 +9,7 @@ type Props = {
 const Article = ({title, content}:Props) => {
   return (
     <StyledArticle>
-      <h1 className="title"><Link href="/posts/1">{title}</Link></h1>
+      <h1 className="title">{title}</h1>
       <p className="content">{content}</p>
     </StyledArticle>
   )

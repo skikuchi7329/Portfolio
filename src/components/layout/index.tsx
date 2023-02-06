@@ -22,6 +22,7 @@ export default function Layout({ children, title, description }: Props) {
         <title>{pageTitle}</title>
         <meta name="description" content={description || "my blog"} />
         <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css" />
+        <html data-theme="light"></html>
       </Head>
       <Header />
       <About />
