@@ -12,6 +12,7 @@ const StyldAbout = styled.div`
 
     table {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       thead {
         th {
