@@ -28,5 +28,8 @@
     "styled-components": "^5.3.6",
     "typescript": "4.9.3",
     "unified": "^10.1.2"
+  },
+  "devDependencies": {
+    "react-scroll": "^1.8.9"
   }
 }

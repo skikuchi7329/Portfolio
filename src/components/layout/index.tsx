@@ -26,7 +26,7 @@ export default function Layout({ children, title, description }: Props) {
       </Head>
       <Header />
       <About />
-      <h1>開発実績</h1>
+      <h1 id="article">開発実績</h1>
       {data.map(({ title, content, link }) => (
         <Article title={title} content={content} link={link} />
       ))}

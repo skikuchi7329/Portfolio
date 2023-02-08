@@ -12,7 +12,7 @@ const Article = ({title, content, link}:Props) => {
     <StyledArticle>
       <h2 className="title">{title}</h2>
       <p className="content">{content}</p>
-      <a href="{link}">{link}</a>
+      <a href={link} target="_blank" rel="noopener noreferrer">{link}</a>
     </StyledArticle>
   )
 }
