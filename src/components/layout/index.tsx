@@ -7,6 +7,7 @@ import Footer from "../Footer";
 import About from "../About/index";
 import Article from "../Articles";
 import { data } from "../../data";
+import Biography from "../Biography";
 
 type Props = {
   children?: React.ReactNode;
@@ -26,6 +27,7 @@ export default function Layout({ children, title, description }: Props) {
       </Head>
       <Header />
       <About />
+      <Biography />
       <h1 id="article">開発実績</h1>
       {data.map(({ title, content, link }) => (
         <Article title={title} content={content} link={link} />
