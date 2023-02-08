@@ -14,7 +14,7 @@ const StyledArticle = styled.div`
   }
   a {
     text-decoration: none;
-    color: whitesmoke;
+    color: gray;
   }
 `;
 
