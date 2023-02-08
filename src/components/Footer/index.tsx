@@ -8,7 +8,7 @@ const Footer = () => {
         <a href="http://github.com/skikuchi7329" target="_blank">
           <Image priority src='/images/github.png' width={20} height={20} alt='logo'></Image>
         </a>
-        <a href="http://twitter.com/shopecohealsu" target="_blank">
+        <a href="http://twitter.com/skikuchi7329" target="_blank">
           <Image priority src='/images/twitter.png' width={20} height={20} alt='logo'></Image>
         </a>
         </footer>
