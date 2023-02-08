@@ -14,9 +14,9 @@ const About = () => {
         <Image
           className="profileIcon"
           alt="profile"
-          src="/images/profile.png"
-          width={50}
-          height={50}
+          src="/images/profileIcon.jpg"
+          width={100}
+          height={100}
         ></Image>
         <h2>自己紹介</h2>
         <table>
