@@ -3,9 +3,9 @@ import styled from "styled-components";
 const StyledArticle = styled.div`
   width: 100%;
   display: block;
+  text-align: center;
   margin: 10px;
   .title {
-    text-align: center;
     margin: 10px auto;
   }
   .content {

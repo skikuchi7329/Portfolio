@@ -18,7 +18,7 @@ const About = () => {
           width={100}
           height={100}
         ></Image>
-        <h2 id="about">自己紹介</h2>
+        <h2>About</h2>
         <table>
           <tr>
             <th>名前</th>

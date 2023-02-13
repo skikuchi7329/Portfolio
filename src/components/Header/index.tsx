@@ -5,14 +5,14 @@ const Header = () => {
   return(
     <StyledHeader>
       <header>
-        <nav>
+        {/* <nav>
           <ul>
             <li><Link href="/">Home</Link></li>
-            <li><Link href="about">About</Link></li>
-            <li><Link href="article">Works</Link></li>
+            <li><Link href="">About</Link></li>
+            <li><Link href="">Works</Link></li>
           </ul>
-        </nav>
-        <h1><Link href="/">Portfolio</Link></h1>
+        </nav> */}
+        <h1><Link href="/">Welcome To My Blog</Link></h1>
       </header>
     </StyledHeader>
   );

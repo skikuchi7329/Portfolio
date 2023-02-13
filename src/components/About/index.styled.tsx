@@ -7,6 +7,7 @@ const StyldAbout = styled.div`
     text-align: center;
     
     h2 {
+      margin-bottom: 10px;
       border-bottom: 1px double black;
     };
 
