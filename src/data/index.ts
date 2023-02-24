@@ -18,7 +18,7 @@ export const data = [
     link: 'https://jirettai.com/',
   },
   {
-    title: 'Weblio英会話のLP',
+    title: 'Weblio英会話のHP',
     content: '私の初の実務経験は、このWeblio英会話のLP作成でした。フロントエンドエンジニアとして主にマークアップを担当しました。',
     language: 'pug/SCSS/JavaScript',
     link: 'https://eikaiwa.weblio.jp/',

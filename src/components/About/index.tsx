@@ -1,12 +1,9 @@
-import fs from "fs";
-import path from "path";
 import data from "../../../data.json";
 import Image from "next/image";
 import StyledAbout from "./index.styled";
 import { isConstructorDeclaration } from "typescript";
 
 const About = () => {
-  const hobbies = data.about.hobby;
 
   return (
     <StyledAbout>
@@ -30,7 +27,7 @@ const About = () => {
           </tr>
           <tr>
             <th>趣味</th>
-            <td>{hobbies}</td>
+            <td>{data.about.hobby}</td>
           </tr>
           <tr>
             <th>言語</th>
