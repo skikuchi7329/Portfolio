@@ -23,19 +23,19 @@ const About = () => {
           <tbody>
             <tr>
               <th>名前</th>
-              <td>{data.about.name}</td>
+              <th>{data.about.name}</th>
             </tr>
             <tr>
               <th>経歴</th>
-              <td>{data.about.carrier}</td>
+              <th>{data.about.carrier}</th>
             </tr>
             <tr>
               <th>趣味</th>
-              <td>{hobbies}</td>
+              <th>{hobbies}</th>
             </tr>
             <tr>
               <th>言語</th>
-              <td>{data.about.language}</td>
+              <th>{data.about.language}</th>
             </tr>
           </tbody>
         </table>
