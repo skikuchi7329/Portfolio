@@ -31,7 +31,7 @@ export default function Layout({ children, title, description }: Props) {
         <h1>Works</h1>
       </div>
       {data.map(({ title, content, language,link }) => (
-        <Article title={title} content={content} language={language} link={link} />
+        <Article key={title} title={title} content={content} language={language} link={link} />
       ))}
       <Footer />
     </StyledLayout>
