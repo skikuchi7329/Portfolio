@@ -1,4 +1,3 @@
-import Link from "next/link";
 import  StyledArticle  from "./index.styled";
 
 type Props = {
