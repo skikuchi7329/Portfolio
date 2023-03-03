@@ -7,7 +7,7 @@ export const data = [
   },
   {
     title: 'Proflol',
-    content: 'このWEBアプリケーションは、友人と二人で開発しました。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。',
+    content: 'このWEBアプリケーションは、友人と二人で開発しました。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(近日デプロイ予定 2023/03/03 更新)',
     language: 'TypeScript/React',
     link: '',
   },
