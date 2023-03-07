@@ -14,7 +14,7 @@ export const data = [
   {
     title: 'jirettai.com',
     content: 'このホームページは、私が所属している、合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。',
-    language: 'JavaScript/React',
+    language: 'JavaScript/React/styled-components',
     link: 'https://jirettai.com/',
   },
   {
