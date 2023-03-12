@@ -5,21 +5,32 @@ const Footer = () => {
   return (
     <StyledFooter>
       <footer>
-        <div>  
+        <div>
           <a href="http://github.com/skikuchi7329" target="_blank">
-            <Image priority src='/images/github.png' width={20} height={20} alt='logo'></Image>
+            <Image
+              priority
+              src="/images/github.png"
+              width={20}
+              height={20}
+              alt="logo"
+            ></Image>
           </a>
           <a href="http://twitter.com/skikuchi7329" target="_blank">
-            <Image priority src='/images/twitter.png' width={20} height={20} alt='logo'></Image>
+            <Image
+              priority
+              src="/images/twitter.png"
+              width={20}
+              height={20}
+              alt="logo"
+            ></Image>
           </a>
         </div>
         <div>
           <p>&copy;copyright Shohei Kikuchi</p>
         </div>
-        </footer>
+      </footer>
     </StyledFooter>
   );
 };
 
 export default Footer;
-

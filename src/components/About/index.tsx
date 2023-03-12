@@ -6,8 +6,6 @@ import StyledAbout from "./index.styled";
 import { isConstructorDeclaration } from "typescript";
 
 const About = () => {
-  const hobbies = data.about.hobby;
-
   return (
     <StyledAbout>
       <div className="about">
@@ -31,7 +29,7 @@ const About = () => {
             </tr>
             <tr>
               <th>趣味</th>
-              <th>{hobbies}</th>
+              <th>{data.about.hobby}</th>
             </tr>
             <tr>
               <th>言語</th>

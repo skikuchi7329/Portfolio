@@ -28,14 +28,19 @@ export default function Layout({ children, title, description }: Props) {
       <div className="works">
         <h1>Works</h1>
       </div>
-      {data.map(({ title, content, language,link }) => (
-        <Article key={title} title={title} content={content} language={language} link={link} />
+      {data.map(({ title, content, language, link }) => (
+        <Article
+          key={title}
+          title={title}
+          content={content}
+          language={language}
+          link={link}
+        />
       ))}
       <Footer />
     </StyledLayout>
   );
 }
-
 
 const StyledLayout = styled.div`
   display: flex;
@@ -46,7 +51,7 @@ const StyledLayout = styled.div`
   padding: 0 1rem;
   margin: 0.5rem auto;
 
-  .works  {
+  .works {
     width: 100%;
     margin: 0 auto;
     border-bottom: 1px double black;
@@ -56,4 +61,4 @@ const StyledLayout = styled.div`
   h1 {
     margin: 0 0 5px;
   }
-`
+`;

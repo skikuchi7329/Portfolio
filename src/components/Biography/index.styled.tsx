@@ -11,6 +11,6 @@ const StyledBiography = styled.div`
     line-height: 1.5;
     text-align: justify;
   }
-`
+`;
 
-export {StyledBiography} ;
+export { StyledBiography };

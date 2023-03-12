@@ -2,7 +2,7 @@ import Link from "next/link";
 import { StyledHeader } from "./index.styled";
 
 const Header = () => {
-  return(
+  return (
     <StyledHeader>
       <header>
         {/* <nav>
@@ -12,7 +12,9 @@ const Header = () => {
             <li><Link href="">Works</Link></li>
           </ul>
         </nav> */}
-        <h1><Link href="/">Welcome To My Blog</Link></h1>
+        <h1>
+          <Link href="/">Welcome To My Blog</Link>
+        </h1>
       </header>
     </StyledHeader>
   );
