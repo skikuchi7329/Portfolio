@@ -27,9 +27,9 @@ export const data = [
 
 export const careerData = [
   {
-    company: "",
-    term: "",
-    contents: "",
-    details: "",
+    company: "株式会社 EFGTechnologies",
+    term: "2021/04~2021/06",
+    contents: "英会話Weblioのホームページリニューアル",
+    details: "マークアップ",
   }
 ]
