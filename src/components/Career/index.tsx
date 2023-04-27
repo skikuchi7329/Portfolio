@@ -10,7 +10,7 @@ type Props = {
 const Career = ({ company, term, contents, details }: Props) => {
   return (
     <StyledCareer>
-      <h2 className="company">{company}</h2>
+      <h3 className="company">{company}</h3>
       <p className="term">{term}</p>
       <p className="contents">{contents}</p>
       <p className="details">{details}</p>
