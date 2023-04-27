@@ -4,7 +4,9 @@ import Footer from "../Footer";
 import About from "../About/index";
 import Article from "../Articles";
 import { data } from "../../data";
+import { careerData } from "../../data";
 import Biography from "../Biography";
+import Career from "../Career";
 import styled from "styled-components";
 
 type Props = {
@@ -25,6 +27,12 @@ export default function Layout({ children, title, description }: Props) {
       <Header />
       <About />
       <Biography />
+      <div className="career">
+        <h1>Career</h1>
+      </div>
+      {careerData.map(({ company, term, contents, details }) => (
+        <Career key={company} company={company} term={term} contents={contents} details={details} / >
+      ))}
       <div className="works">
         <h1>Works</h1>
       </div>

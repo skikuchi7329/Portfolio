@@ -24,3 +24,12 @@ export const data = [
     link: 'https://eikaiwa.weblio.jp/',
   }
 ]
+
+export const careerData = [
+  {
+    company: "",
+    term: "",
+    contents: "",
+    details: "",
+  }
+]
