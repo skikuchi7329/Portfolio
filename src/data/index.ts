@@ -24,3 +24,12 @@ export const data = [
     link: 'https://eikaiwa.weblio.jp/',
   }
 ]
+
+export const careerData = [
+  {
+    company: "株式会社 EFGTechnologies",
+    term: "2021/04~2021/06",
+    contents: "英会話Weblioのホームページリニューアル",
+    details: "マークアップ",
+  }
+]
