@@ -30,6 +30,6 @@ export const careerData = [
     company: "株式会社 EFGTechnologies",
     term: "2021/04~2021/06",
     contents: "英会話Weblioのホームページリニューアル",
-    details: "マークアップ",
+    details: "フロントエンドエンジニアである友人の紹介で受けた初めての実務案件。人数は6人で、私はマークアップコーダーとしてpug,SCSS,JavaScriptを使用してマークアップを行いました。",
   }
 ]

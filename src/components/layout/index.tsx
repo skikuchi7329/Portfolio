@@ -27,13 +27,13 @@ export default function Layout({ children, title, description }: Props) {
       <Header />
       <About />
       <Biography />
-      <div className="career">
+      <div className="Layout__title">
         <h1>Career</h1>
       </div>
       {careerData.map(({ company, term, contents, details }) => (
         <Career key={company} company={company} term={term} contents={contents} details={details} / >
       ))}
-      <div className="works">
+      <div className="Layout__title">
         <h1>Works</h1>
       </div>
       {data.map(({ title, content, language, link }) => (
@@ -59,7 +59,7 @@ const StyledLayout = styled.div`
   padding: 0 1rem;
   margin: 0.5rem auto;
 
-  .works {
+  .Layout__title {
     width: 100%;
     margin: 0 auto;
     border-bottom: 1px double black;
