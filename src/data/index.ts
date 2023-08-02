@@ -22,7 +22,13 @@ export const data = [
     content: '私の初の実務経験は、このWeblio英会話のLP作成でした。フロントエンドエンジニアとして主にマークアップを担当しました。',
     language: 'pug/SCSS/JavaScript',
     link: 'https://eikaiwa.weblio.jp/',
-  }
+  },
+  {
+    title: 'スロシミュ',
+    content: '趣味で開発した、実際に日本に存在するスロットマシーン(回胴式遊戯機)のシミュレーションができるWEBアプリです。',
+    language: 'React/TypeScript',
+    link: 'https://slot-simulator.vercel.app/',
+  },
 ]
 
 export const careerData = [
