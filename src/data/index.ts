@@ -50,4 +50,10 @@ export const careerData = [
     contents: "shopifyにおけるマークアップ及びコーディング",
     details: "株式会社EFGのつながりで、受けた案件。shopifyのホームページ作成がメインで、CSSやJavaScriptを使用したテーマの編集や、Liquidを使ったセクションの作成を行っている。",
   },
+  {
+    company: "株式会社天久保",
+    term: "2023/10~現在",
+    contents: "shopifyにおけるマークアップ及びコーディング",
+    details: "wordpressを主に使用した、自作テーマの作成、環境構築",
+  }
 ]
