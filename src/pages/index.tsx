@@ -1,13 +1,8 @@
 import Layout from "../components/layout";
 import next from "next";
 
-
-
 const Home = () => {
-  return (
-    <Layout></Layout>
-  );
+  return <Layout></Layout>;
 };
-
 
 export default Home;

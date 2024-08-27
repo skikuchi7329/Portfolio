@@ -1,5 +1,11 @@
-import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, {
+  DocumentContext,
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -30,18 +36,18 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-        <Html data-theme="light">
-          <Head>
-            <link
-              rel="stylesheet"
-              href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css"
-            />
-          </Head>
-          <body>
-            <Main />
-            <NextScript />
-          </body>
-        </Html>
-      );    
+      <Html data-theme="light">
+        <Head>
+          <link
+            rel="stylesheet"
+            href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css"
+          />
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

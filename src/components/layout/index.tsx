@@ -31,7 +31,13 @@ export default function Layout({ children, title, description }: Props) {
         <h1>Career</h1>
       </div>
       {careerData.map(({ company, term, contents, details }) => (
-        <Career key={company} company={company} term={term} contents={contents} details={details} / >
+        <Career
+          key={company}
+          company={company}
+          term={term}
+          contents={contents}
+          details={details}
+        />
       ))}
       <div className="Layout__title">
         <h1>Works</h1>

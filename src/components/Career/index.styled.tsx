@@ -13,5 +13,5 @@ const StyledCareer = styled.div`
     margin: 10px auto;
     font-size: 18px;
   }
-`
+`;
 export default StyledCareer;
