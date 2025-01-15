@@ -1,5 +1,4 @@
-import Layout from "../components/layout";
-import next from "next";
+import Layout from "./layout";
 
 const Home = () => {
   return <Layout></Layout>;

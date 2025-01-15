@@ -1,0 +1,28 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.th {
+  margin: 10px;
+}
+
+.tr {
+  margin: 10px;
+}
+
+.heading {
+  margin-bottom: 10px;
+  border-bottom: 1px double black;
+}
+
+.profileIcon {
+  margin: 0 auto;
+}
