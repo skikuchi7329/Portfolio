@@ -8,7 +8,7 @@ import Article from "./components/Articles";
 import { data, careerData } from "../data/index";
 import Biography from "./components/Biography";
 import Career from "./components/Career";
-import { styled } from "@mui/material";
+import { styled } from "@mui/system";
 
 const Wrapper = styled("div")`
   display: flex;
@@ -40,44 +40,42 @@ type Props = {
 export default function Layout({ title, description }: Props) {
   const pageTitle = title || "my blog";
   return (
-    <html lang="ja">
+    <>
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content={description || "my blog"} />
         <link rel="icon" href="/favicondog.ico" />
       </Head>
-      <body>
-        <Wrapper>
-          <Header />
-          <About />
-          <Biography />
-          <div className="Layout__title">
-            <h1>Career</h1>
-          </div>
-          {careerData.map(({ company, term, contents, details }) => (
-            <Career
-              key={company}
-              company={company}
-              term={term}
-              contents={contents}
-              details={details}
-            />
-          ))}
-          <Title>
-            <h1>Works</h1>
-          </Title>
-          {data.map(({ title, content, language, link }) => (
-            <Article
-              key={title}
-              title={title}
-              content={content}
-              language={language}
-              link={link}
-            />
-          ))}
-          <Footer />
-        </Wrapper>
-      </body>
-    </html>
+      <Wrapper>
+        <Header />
+        <About />
+        <Biography />
+        <div className="Layout__title">
+          <h1>Career</h1>
+        </div>
+        {careerData.map(({ company, term, contents, details }) => (
+          <Career
+            key={company}
+            company={company}
+            term={term}
+            contents={contents}
+            details={details}
+          />
+        ))}
+        <Title>
+          <h1>Works</h1>
+        </Title>
+        {data.map(({ title, content, language, link }) => (
+          <Article
+            key={title}
+            title={title}
+            content={content}
+            language={language}
+            link={link}
+          />
+        ))}
+        <Footer />
+      </Wrapper>
+    </>
   );
 }
