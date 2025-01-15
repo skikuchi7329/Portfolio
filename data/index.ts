@@ -1,40 +1,3 @@
-export const data = [
-  {
-    title: "This site.",
-    content: "このポートフォリオサイトは、個人開発しました。",
-    language: "TypeScript/Next.js/styled-components",
-    link: "",
-  },
-  {
-    title: "Proflol",
-    content:
-      "このWEBアプリケーションは、友人と二人で開発しました。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(近日デプロイ予定 2023/03/03 更新)",
-    language: "TypeScript/React/styled-components",
-    link: "",
-  },
-  {
-    title: "jirettai.com",
-    content:
-      "このホームページは、私が所属している、合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。",
-    language: "JavaScript/React/styled-components",
-    link: "https://jirettai.com/",
-  },
-  {
-    title: "Weblio英会話のLP",
-    content:
-      "私の初の実務経験は、このWeblio英会話のLP作成でした。フロントエンドエンジニアとして主にマークアップを担当しました。",
-    language: "pug/SCSS/JavaScript",
-    link: "https://eikaiwa.weblio.jp/",
-  },
-  {
-    title: "スロシミュ",
-    content:
-      "趣味で開発した、実際に日本に存在するスロットマシーン(回胴式遊戯機)のシミュレーションができるWEBアプリです。",
-    language: "React/TypeScript",
-    link: "https://slot-simulator.vercel.app/",
-  },
-];
-
 export const careerData = [
   {
     company: "株式会社 EFGTechnologies",
@@ -69,5 +32,42 @@ export const careerData = [
     contents: "中学受験コベツバの開発",
     details:
       "5~8人程度の少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装,テストコードの実装を行う。Next.js+TypeScript",
+  },
+];
+
+export const data = [
+  {
+    title: "This site.",
+    content: "このポートフォリオサイトは、個人開発しました。",
+    language: "TypeScript/Next.js/styled-components",
+    link: "",
+  },
+  {
+    title: "Proflol",
+    content:
+      "このWEBアプリケーションは、友人と二人で開発しました。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(近日デプロイ予定 2023/03/03 更新)",
+    language: "TypeScript/React/styled-components",
+    link: "",
+  },
+  {
+    title: "jirettai.com",
+    content:
+      "このホームページは、私が所属している、合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。",
+    language: "JavaScript/React/styled-components",
+    link: "https://jirettai.com/",
+  },
+  {
+    title: "Weblio英会話のLP",
+    content:
+      "私の初の実務経験は、このWeblio英会話のLP作成でした。フロントエンドエンジニアとして主にマークアップを担当しました。",
+    language: "pug/SCSS/JavaScript",
+    link: "https://eikaiwa.weblio.jp/",
+  },
+  {
+    title: "スロシミュ",
+    content:
+      "趣味で開発した、実際に日本に存在するスロットマシーン(回胴式遊戯機)のシミュレーションができるWEBアプリです。",
+    language: "React/TypeScript",
+    link: "https://slot-simulator.vercel.app/",
   },
 ];

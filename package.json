@@ -9,16 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.0",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
-    "next": "13.0.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^15.1.4",
+    "next": "^15.1.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "remark-rehype": "^10.1.0",
@@ -28,6 +31,10 @@
     "unified": "^10.1.2"
   },
   "devDependencies": {
-    "react-scroll": "^1.8.9"
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "react-scroll": "^1.8.9",
+    "sass": "^1.83.4"
   }
 }
