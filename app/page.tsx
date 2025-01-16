@@ -39,7 +39,6 @@ export default function Page() {
         <meta key="description" content="description" name="description" />
       </Head>
       <Wrapper>
-        <Header />
         <About />
         <Biography />
         <div className="Layout__title">
@@ -66,7 +65,6 @@ export default function Page() {
             link={link}
           />
         ))}
-        <Footer />
       </Wrapper>
     </>
   );
