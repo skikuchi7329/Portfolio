@@ -4,7 +4,7 @@ export const careerData = [
     term: "2021/04~2021/06",
     contents: "英会話Weblioのホームページリニューアル",
     details:
-      "フロントエンドエンジニアである友人の紹介で受けた初めての実務案件。人数は6人で、私はマークアップコーダーとしてpug,SCSS,JavaScriptを使用してマークアップを行いました。",
+      "フロントエンドエンジニアである友人の紹介で受けた初めての実務案件。開発チームのは6人で、私はマークアップコーダーとしてpug,SCSS,JavaScriptを使用してマークアップを行いました。",
   },
   {
     company: "合同会社じれったい",
@@ -15,10 +15,10 @@ export const careerData = [
   },
   {
     company: "株式会社co-nect",
-    term: "2023/04~現在",
+    term: "2023/04~2024/04",
     contents: "shopifyにおけるマークアップ及びコーディング",
     details:
-      "株式会社EFGのつながりで、受けた案件。shopifyのホームページ作成がメインで、CSSやJavaScriptを使用したテーマの編集や、Liquidを使ったセクションの作成を行っている。",
+      "株式会社EFGのつながりで、受けた案件。shopifyのホームページ作成がメインで、CSSやJavaScriptを使用したテーマの編集や、Liquidを使ったセクションの作成を行った。",
   },
   {
     company: "株式会社天久保",
@@ -31,7 +31,7 @@ export const careerData = [
     term: "2024/06~現在",
     contents: "中学受験コベツバの開発",
     details:
-      "5~8人程度の少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装,テストコードの実装を行う。Next.js+TypeScript",
+      "5~8人程度の少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装,テストコードの実装を行う。言語はNext.js+TypeScriptで、フロントエンド先行の開発では、mswとstorybookを使用して開発をおこなった。",
   },
 ];
 
