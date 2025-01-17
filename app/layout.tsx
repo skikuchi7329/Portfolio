@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>
+      <body style={{ margin: 0, backgroundColor: "#101218", color: "#cdcdcd" }}>
       <Header />
         {children}
       <Footer />

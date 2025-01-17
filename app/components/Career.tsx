@@ -10,10 +10,12 @@ type Props = {
 const Career = ({ company, term, contents, details }: Props) => {
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.heading}>{company}</h3>
-      <p className={styles.paragraph}>{term}</p>
-      <p className={styles.paragraph}>{contents}</p>
-      <p className={styles.paragraph}>{details}</p>
+      <div className={styles.container}>
+        <h3 className={styles.heading}>{company}</h3>
+        <p className={styles.paragraph}>{term}</p>
+        <p className={styles.paragraph}>{contents}</p>
+        <p className={styles.paragraph}>{details}</p>
+      </div>
     </div>
   );
 };

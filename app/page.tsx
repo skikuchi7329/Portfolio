@@ -1,8 +1,6 @@
 "use client";
 
 import Head from "next/head";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import About from "./components/About";
 import Article from "./components/Articles";
 import { data, careerData } from "../data/index";
@@ -15,9 +13,9 @@ const Wrapper = styled("div")`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 36rem;
+  max-width: 1000px;
   padding: 0 1rem;
-  margin: 0.5rem auto;
+  margin: 0rem auto;
 `;
 
 const Title = styled("div")`
@@ -31,6 +29,22 @@ const Title = styled("div")`
   }
 `;
 
+const GridWrapper = styled("div")`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  transition: 0.5s;
+
+  & > div:hover {
+    opacity: 0.8;
+    transition: 0.5s;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
 export default function Page() {
   return (
     <>
@@ -41,30 +55,34 @@ export default function Page() {
       <Wrapper>
         <About />
         <Biography />
-        <div className="Layout__title">
+        <Title>
           <h1>Career</h1>
-        </div>
-        {careerData.map(({ company, term, contents, details }) => (
-          <Career
-            key={company}
-            company={company}
-            term={term}
-            contents={contents}
-            details={details}
-          />
-        ))}
+        </Title>
+        <GridWrapper>
+          {careerData.map(({ company, term, contents, details }) => (
+            <Career
+              key={company}
+              company={company}
+              term={term}
+              contents={contents}
+              details={details}
+            />
+          ))}
+        </GridWrapper>
         <Title>
           <h1>Works</h1>
         </Title>
-        {data.map(({ title, content, language, link }) => (
-          <Article
-            key={title}
-            title={title}
-            content={content}
-            language={language}
-            link={link}
-          />
-        ))}
+        <GridWrapper>
+          {data.map(({ title, content, language, link }) => (
+            <Article
+              key={title}
+              title={title}
+              content={content}
+              language={language}
+              link={link}
+            />
+          ))}
+        </GridWrapper>
       </Wrapper>
     </>
   );

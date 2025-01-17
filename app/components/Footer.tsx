@@ -12,7 +12,7 @@ const Footer = () => {
         >
           <Image
             priority
-            src="/images/github.png"
+            src="/images/github_icon.png"
             width={20}
             height={20}
             alt="logo"
@@ -25,7 +25,7 @@ const Footer = () => {
         >
           <Image
             priority
-            src="/images/twitter.png"
+            src="/images/x_icon.png"
             width={20}
             height={20}
             alt="logo"

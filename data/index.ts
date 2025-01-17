@@ -45,14 +45,14 @@ export const data = [
   {
     title: "Proflol",
     content:
-      "このWEBアプリケーションは、友人と二人で開発しました。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(近日デプロイ予定 2023/03/03 更新)",
+      "このWEBアプリケーションは、友人と共同開発。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(未デプロイ)",
     language: "TypeScript/React/styled-components",
     link: "",
   },
   {
     title: "jirettai.com",
     content:
-      "このホームページは、私が所属している、合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。",
+      "合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。",
     language: "JavaScript/React/styled-components",
     link: "https://jirettai.com/",
   },

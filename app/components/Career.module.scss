@@ -1,6 +1,8 @@
 .wrapper {
   margin-bottom: 30px;
   text-align: center;
+  display: gird;
+  grid-template-rows: 1fr 1fr;
 }
 
 .paragraph {
