@@ -51,6 +51,7 @@ export default function Page() {
       <Head>
         <title key="title">My Portfolio</title>
         <meta key="description" content="description" name="description" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Wrapper>
         <About />
