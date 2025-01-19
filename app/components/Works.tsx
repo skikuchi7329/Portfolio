@@ -7,7 +7,7 @@ type Props = {
   language: string;
 };
 
-const Article = ({ title, content, language, link }: Props) => {
+const Works = ({ title, content, language, link }: Props) => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>{title}</h2>
@@ -25,4 +25,4 @@ const Article = ({ title, content, language, link }: Props) => {
   );
 };
 
-export default Article;
+export default Works;

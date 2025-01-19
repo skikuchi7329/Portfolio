@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import About from "./components/About";
-import Article from "./components/Works";
+import Works from "./components/Works";
 import { data, careerData } from "../data/index";
 import Biography from "./components/Biography";
 import Career from "./components/Career";
@@ -74,7 +74,7 @@ export default function Page() {
         </Title>
         <GridWrapper>
           {data.map(({ title, content, language, link }) => (
-            <Article
+            <Works
               key={title}
               title={title}
               content={content}
