@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import About from "./components/About";
-import Article from "./components/Articles";
+import Article from "./components/Works";
 import { data, careerData } from "../data/index";
 import Biography from "./components/Biography";
 import Career from "./components/Career";

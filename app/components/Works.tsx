@@ -1,4 +1,4 @@
-import styles from "./Articles.module.scss";
+import styles from "./Works.module.scss";
 
 type Props = {
   title: string;
@@ -13,7 +13,12 @@ const Article = ({ title, content, language, link }: Props) => {
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.content}>{content}</p>
       <p>{language}</p>
-      <a href={link} target="_blank" rel="noopener noreferrer" className={styles.link}> 
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.link}
+      >
         {link}
       </a>
     </div>
