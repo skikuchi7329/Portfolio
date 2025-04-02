@@ -38,7 +38,7 @@ export const careerData = [
 export const data = [
   {
     title: "This site.",
-    content: "このポートフォリオサイトは、個人開発しました。",
+    content: "このポートフォリオサイトは、個人開発しました。2025.03 Next13からNext15(app router)にバージョンアップ済み。",
     language: "TypeScript/Next.js/styled-components",
     link: "",
   },
