@@ -1,6 +1,6 @@
-import data from "../../data.json";
-import Image from "next/image";
-import styles from "./About.module.scss"
+import data from '../../data.json';
+import Image from 'next/image';
+import styles from './About.module.scss';
 
 const About = () => {
   return (

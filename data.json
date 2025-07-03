@@ -1,8 +1,8 @@
 {
-  "about":{
-    "name":"Shopeco",
-    "carrier":"東京理科大学 理学部第二部 数学科",
-    "hobby":["プログラミング学習 お酒 ゲーム アニメ 麻雀 温泉 ダイビング スキー"],
-    "language":["JavaScript TypeScript React Next.js"]
+  "about": {
+    "name": "Shopeco",
+    "carrier": "東京理科大学 理学部第二部 数学科",
+    "hobby": ["プログラミング学習 お酒 ゲーム アニメ 麻雀 温泉 ダイビング スキー"],
+    "language": ["JavaScript TypeScript React Next.js"]
   }
 }
