@@ -1,4 +1,4 @@
-import styles from "./Career.module.scss";
+import styles from './Career.module.scss';
 
 type Props = {
   company: string;

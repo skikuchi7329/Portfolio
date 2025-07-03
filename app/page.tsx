@@ -1,24 +1,25 @@
-"use client";
+'use client';
 
-import Head from "next/head";
-import About from "./components/About";
-import Works from "./components/Works";
-import { data, careerData } from "../data/index";
-import Biography from "./components/Biography";
-import Career from "./components/Career";
-import { styled } from "@mui/system";
+import Head from 'next/head';
+import About from './components/About';
+import Works from './components/Works';
+import { data, careerData } from '../data/index';
+import Biography from './components/Biography';
+import Career from './components/Career';
+import { styled } from '@mui/system';
 
-const Wrapper = styled("div")`
+const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   max-width: 1000px;
   padding: 0 1rem;
   margin: 0rem auto;
 `;
 
-const Title = styled("div")`
+const Title = styled('div')`
   width: 100%;
   margin: 0 auto;
   border-bottom: 1px double black;
@@ -29,7 +30,7 @@ const Title = styled("div")`
   }
 `;
 
-const GridWrapper = styled("div")`
+const GridWrapper = styled('div')`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
@@ -75,13 +76,7 @@ export default function Page() {
         </Title>
         <GridWrapper>
           {data.map(({ title, content, language, link }) => (
-            <Works
-              key={title}
-              title={title}
-              content={content}
-              language={language}
-              link={link}
-            />
+            <Works key={title} title={title} content={content} language={language} link={link} />
           ))}
         </GridWrapper>
       </Wrapper>

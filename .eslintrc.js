@@ -1,18 +1,18 @@
 module.exports = {
   // ...existing code...
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ['@typescript-eslint'],
   extends: [
     // ...existing code...
-    "prettier",
+    'prettier',
     // ...existing code...
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals",
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'next/core-web-vitals',
   ],
   // ...existing code...
 };
