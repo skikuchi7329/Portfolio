@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Head from 'next/head';
 import About from '../components/About';
 import Works from '../components/Works';

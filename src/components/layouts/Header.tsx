@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './Header.module.scss';
+import React from 'react';
 
 const Header = () => {
   return (

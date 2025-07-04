@@ -1,3 +1,5 @@
+import React from 'react';
+
 import data from '../../data.json';
 import Image from 'next/image';
 import styles from './About.module.scss';
