@@ -1,11 +1,11 @@
 'use client';
 
 import Head from 'next/head';
-import About from './components/About';
-import Works from './components/Works';
-import { data, careerData } from '../data/index';
-import Biography from './components/Biography';
-import Career from './components/Career';
+import About from '../components/About';
+import Works from '../components/Works';
+import { data, careerData } from '../../data/index';
+import Biography from '../components/Biography';
+import Career from '../components/Career';
 import { styled } from '@mui/system';
 
 const Wrapper = styled('div')`
