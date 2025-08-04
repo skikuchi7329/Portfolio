@@ -1,31 +1,47 @@
 import React from 'react';
-
 import Image from 'next/image';
-import styles from './Footer.module.scss';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div>
-        <a
+    <footer className="flex flex-col items-center justify-center gap-y-4 py-8">
+      {/* ソーシャルリンクのコンテナ */}
+      <div className="flex items-center gap-x-6">
+        <Link
           href="http://github.com/skikuchi7329"
           target="_blank"
-          className={styles.link}
           rel="noopener noreferrer"
+          className="transition-opacity hover:opacity-75"
         >
-          <Image priority src="/images/github_icon.png" width={20} height={20} alt="logo"></Image>
-        </a>
-        <a
+          <Image
+            priority
+            src="/images/github_icon.png"
+            width={24}
+            height={24}
+            alt="GitHub logo"
+            className="dark:invert" // ダークモードで色を反転
+          />
+        </Link>
+        <Link
           href="http://twitter.com/skikuchi7329"
           target="_blank"
-          className={styles.link}
           rel="noopener noreferrer"
+          className="transition-opacity hover:opacity-75"
         >
-          <Image priority src="/images/x_icon.png" width={20} height={20} alt="logo"></Image>
-        </a>
+          <Image
+            priority
+            src="/images/x_icon.png"
+            width={24}
+            height={24}
+            alt="X logo"
+            className="dark:invert" // ダークモードで色を反転
+          />
+        </Link>
       </div>
+
+      {/* コピーライト */}
       <div>
-        <p className={styles.paragraph}>&copy;copyright Shohei Kikuchi</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Shohei Kikuchi</p>
       </div>
     </footer>
   );
