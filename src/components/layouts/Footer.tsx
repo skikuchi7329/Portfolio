@@ -5,7 +5,6 @@ import Link from 'next/link';
 const Footer = () => {
   return (
     <footer className="flex flex-col items-center justify-center gap-y-4 py-8">
-      {/* ソーシャルリンクのコンテナ */}
       <div className="flex items-center gap-x-6">
         <Link
           href="http://github.com/skikuchi7329"
@@ -19,7 +18,7 @@ const Footer = () => {
             width={24}
             height={24}
             alt="GitHub logo"
-            className="dark:invert" // ダークモードで色を反転
+            className="dark:invert"
           />
         </Link>
         <Link
@@ -34,12 +33,11 @@ const Footer = () => {
             width={24}
             height={24}
             alt="X logo"
-            className="dark:invert" // ダークモードで色を反転
+            className="dark:invert"
           />
         </Link>
       </div>
 
-      {/* コピーライト */}
       <div>
         <p className="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Shohei Kikuchi</p>
       </div>

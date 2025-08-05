@@ -8,7 +8,7 @@ import React from 'react';
 
 export const metadata: Metadata = {
   title: 'My Portfolio',
-  description: 'ポートフォリオサイトです',
+  description: 'ポートフォリオサイト',
 };
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
