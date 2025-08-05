@@ -27,7 +27,6 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.0",
     "@tailwindcss/postcss": "^4.1.11",
-    "@tailwindcss/vite": "^4.1.11",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
@@ -49,14 +48,14 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.5",
-    "@typescript-eslint/eslint-plugin": "^8.35.1",
-    "@typescript-eslint/parser": "^8.35.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-react": "^7.37.5",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
     "prettier": "^3.6.2",
     "sass": "^1.83.4",
-    "typescript-eslint": "^8.35.1"
+    "typescript-eslint": "^8.39.0"
   }
 }
