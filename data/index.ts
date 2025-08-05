@@ -44,13 +44,6 @@ export const data = [
     link: '',
   },
   {
-    title: 'Proflol',
-    content:
-      'このWEBアプリケーションは、友人と共同開発。APIキーを取得して、League of Legendというオンラインゲームのプロフィール画像を作成するものとなっています。(未デプロイ)',
-    language: 'TypeScript/React/styled-components',
-    link: '',
-  },
-  {
     title: 'jirettai.com',
     content:
       '合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。',
