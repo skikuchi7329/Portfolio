@@ -5,7 +5,7 @@ import Image from 'next/image';
 const About = () => {
   const profileItems = [
     { label: '名前', value: data.about.name },
-    { label: '経歴', value: data.about.carrier },
+    { label: '学歴', value: data.about.carrier },
     { label: '趣味', value: data.about.hobby },
     { label: '言語', value: data.about.language },
   ];
