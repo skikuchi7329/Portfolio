@@ -28,10 +28,24 @@ export const careerData = [
   },
   {
     company: '(株)STORY',
-    term: '2024/06~現在',
+    term: '2024/06~2025/02',
     contents: '中学受験コベツバの開発',
     details:
       '5~8人程度の少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装,テストコードの実装を行う。言語はNext.js+TypeScriptで、フロントエンド先行の開発では、mswとstorybookを使用して開発をおこなった。',
+  },
+  {
+    company: '株式会社Hakky',
+    term: '2025/02~現在',
+    contents: 'Hakky HandbookのNextJS移行/保守・運用/新規機能の追加',
+    details:
+      '10人程度のフロントエンドエンジニアチーム。フロントエンドエンジニアとして各ページの実装,保守・運用, GA4+Clarityの導入, 各コンポーネントの実装, チーム運営等々。開発環境は、NextJS+TypeScript+PandaCSS+Strapi',
+  },
+  {
+    company: '株式会社ルートチーム',
+    term: '2025/05~現在',
+    contents: 'One Streamの新規機能の追加',
+    details:
+      '15人程度のエンジニアチーム。ワークフロー機能に新しいトリガーおよびアクションの追加、新規エンティティ「記事配信機能」を設計から実装までリーダーとして担う、新人へのキャッチアップ支援、随時バグ修正等々。開発環境はNextJS+TypeScript',
   },
 ];
 
