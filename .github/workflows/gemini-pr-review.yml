@@ -19,7 +19,7 @@ defaults:
 
 permissions:
   contents: 'read'
-  id-token: 'write' # WIF方式の場合に必須
+  id-token: 'write'
   issues: 'write'
   pull-requests: 'write'
   statuses: 'write'
@@ -65,7 +65,7 @@ jobs:
         uses: 'google-github-actions/run-gemini-cli@v0'
         id: 'gemini_pr_review'
         with:
-          gemini_api_key: '${{ secrets.GEMINI_API_KEY }}'
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
 
           prompt: |-
             ## Role
@@ -86,6 +86,13 @@ jobs:
             3.  **Provide Feedback**: Create a concise, constructive review. For each point, reference the file and line number. If suggesting code changes, use markdown suggestion blocks.
             4.  **Summarize**: Start your review with a brief, high-level summary of the pull request.
             5.  **Be Specific**: Do not give vague feedback. Your comments must be actionable.
+
+      - name: 'Geminiの出力をデバッグする'
+        shell: bash
+        run: |
+          echo "--- Geminiレスポンスここから ---"
+          echo "${{ steps.gemini_pr_review.outputs.gemini-response }}"
+          echo "--- Geminiレスポンスここまで ---"
 
       - name: 'Post Review Comment'
         if: success()
