@@ -97,13 +97,17 @@ jobs:
           echo "--- Geminiレスポンスここまで ---"
 
       - name: 'Post Review Comment'
-        if: success() && steps.get_pr.outputs.pr_too_large == 'false'
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-          PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
-          REVIEW: '${{ steps.gemini_pr_review.outputs.gemini-response }}'
-        run: |
-          gh pr comment "${PR_NUMBER}" --body "$REVIEW"
+              if: success() && steps.get_pr.outputs.pr_too_large == 'false'
+              env:
+                GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+                PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
+                REVIEW: '${{ steps.gemini_pr_review.outputs.gemini-response }}'
+              run: |
+                if [ -z "$REVIEW" ]; then
+                  echo "::warning:: Gemini response was empty. No comment posted."
+                else
+                  gh pr comment "${PR_NUMBER}" --body "$REVIEW"
+                fi
 
       - name: 'Post Too Large Comment'
         if: steps.get_pr.outputs.pr_too_large == 'true'
