@@ -1,16 +1,12 @@
 name: '🧐 Gemini Pull Request Review'
 
 on:
-  pull_request:
-    types:
-      - 'opened'
-      - 'reopened'
   issue_comment:
     types:
       - 'created'
 
 concurrency:
-  group: '${{ github.workflow }}-${{ github.head_ref || github.ref }}'
+  group: '${{ github.workflow }}-${{ github.event.issue.number }}'
   cancel-in-progress: true
 
 defaults:
@@ -19,31 +15,20 @@ defaults:
 
 permissions:
   contents: 'read'
-  id-token: 'write'
   issues: 'write'
   pull-requests: 'write'
-  statuses: 'write'
 
 jobs:
   review-pr:
     if: |-
-      (
-        github.event_name == 'pull_request' &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association)
-      ) ||
-      (
-        github.event_name == 'issue_comment' &&
-        github.event.issue.pull_request &&
-        contains(github.event.comment.body, '@gemini-cli /review') &&
-        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
-      )
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request &&
+      contains(github.event.comment.body, '@gemini-review') &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
     timeout-minutes: 5
     runs-on: 'ubuntu-latest'
 
     steps:
-      - name: 'Checkout PR code'
-        uses: 'actions/checkout@v4'
-
       - name: 'Get PR details'
         id: 'get_pr'
         env:
@@ -54,14 +39,28 @@ jobs:
           echo "pr_number=${PR_NUMBER}" >> "${GITHUB_OUTPUT}"
           PR_DATA="$(gh pr view "${PR_NUMBER}" --json title,body,additions,deletions,changedFiles,baseRefName,headRefName)"
           echo "pr_data=${PR_DATA}" >> "${GITHUB_OUTPUT}"
+
           PR_PATCH="$(gh pr diff "${PR_NUMBER}" --patch)"
-          {
-            echo "pr_patch<<EOF"
-            echo "${PR_PATCH}"
-            echo "EOF"
-          } >> "${GITHUB_OUTPUT}"
+
+          PATCH_SIZE=$(echo "${PR_PATCH}" | wc -c)
+
+          MAX_SIZE=80000 
+          echo "patch_size=${PATCH_SIZE}" >> "${GITHUB_OUTPUT}"
+
+          if [ "${PATCH_SIZE}" -gt "${MAX_SIZE}" ]; then
+            echo "pr_too_large=true" >> "${GITHUB_OUTPUT}"
+            echo "::warning::PR diff is too large (${PATCH_SIZE} chars). Skipping Gemini review."
+          else
+            echo "pr_too_large=false" >> "${GITHUB_OUTPUT}"
+            {
+              echo "pr_patch<<EOF"
+              echo "${PR_PATCH}"
+              echo "EOF"
+            } >> "${GITHUB_OUTPUT}"
+          fi
 
       - name: 'Run Gemini PR Review'
+        if: steps.get_pr.outputs.pr_too_large == 'false'
         uses: 'google-github-actions/run-gemini-cli@v0'
         id: 'gemini_pr_review'
         with:
@@ -95,7 +94,7 @@ jobs:
           echo "--- Geminiレスポンスここまで ---"
 
       - name: 'Post Review Comment'
-        if: success()
+        if: success() && steps.get_pr.outputs.pr_too_large == 'false'
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
@@ -103,8 +102,16 @@ jobs:
         run: |
           gh pr comment "${PR_NUMBER}" --body "$REVIEW"
 
+      - name: 'Post Too Large Comment'
+        if: steps.get_pr.outputs.pr_too_large == 'true'
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+          PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
+        run: |
+          gh pr comment "${PR_NUMBER}" --body "🤖 This PR diff is too large for Gemini to review. Please review manually."
+
       - name: 'Post Failure Comment'
-        if: failure()
+        if: failure() && steps.get_pr.outputs.pr_too_large == 'false'
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
