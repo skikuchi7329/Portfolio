@@ -24,13 +24,16 @@ const About = () => {
           About
         </h2>
 
-        <dl className="space-y-4">
+        <dl className="w-full space-y-4">
           {profileItems.map((item) => (
-            <div key={item.label} className="grid grid-cols-[80px_1fr] items-baseline gap-4">
-              <dt className="hidden text-right text-sm font-semibold text-lg sm:block">
-                {item.label}
+            <div
+              key={item.label}
+              className="sm:grid sm:grid-cols-[80px_1fr] sm:items-baseline sm:gap-4"
+            >
+              <dt className="text-sm font-semibold text-gray-500 dark:text-gray-400 sm:text-right sm:text-lg sm:text-gray-900 sm:dark:text-white">
+                {item.label}：
               </dt>
-              <dd className="text-base text-lg">{item.value}</dd>
+              <dd className="pl-4 text-base sm:pl-0 sm:text-lg">{item.value}</dd>
             </div>
           ))}
         </dl>
