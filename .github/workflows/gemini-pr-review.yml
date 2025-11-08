@@ -29,6 +29,9 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
+      - name: 'Checkout code'
+        uses: 'actions/checkout@v4'
+      
       - name: 'Get PR details'
         id: 'get_pr'
         env:
