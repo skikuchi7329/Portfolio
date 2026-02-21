@@ -8,25 +8,42 @@ type Props = {
 };
 
 const Works = ({ title, content, language, link }: Props) => {
+  const languages = language.split('/');
+
   return (
-    <div className="flex flex-col rounded-lg border border-gray-200 bg-white p-6 text-center shadow-md transition-opacity duration-300 hover:opacity-80 dark:border-gray-700 dark:bg-gray-800">
-      <div className="flex flex-grow flex-col space-y-4">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h2>
-        <p className="text-base text-gray-700 dark:text-gray-300">{content}</p>
-        <p className="text-sm font-medium text-sky-600 dark:text-sky-400">{language}</p>
+    <div className="glass-card group flex flex-col rounded-2xl p-6">
+      <div className="flex flex-grow flex-col">
+        <h3 className="mb-3 text-lg font-semibold text-text-primary transition-colors group-hover:text-primary-400">
+          {title}
+        </h3>
+        <p className="mb-4 flex-grow text-sm leading-relaxed text-text-secondary">{content}</p>
+        <div className="mb-4 flex flex-wrap gap-2">
+          {languages.map((lang) => (
+            <span key={lang} className="tech-badge">
+              {lang.trim()}
+            </span>
+          ))}
+        </div>
       </div>
 
       {link && (
-        <div className="mt-6">
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-md bg-gray-800 px-5 py-2 text-sm font-medium text-white no-underline transition hover:bg-gray-700 dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300"
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 self-start rounded-lg border border-border-accent bg-primary-500/10 px-4 py-2 text-sm font-medium text-primary-400 no-underline transition-all hover:bg-primary-500/20 hover:text-primary-400"
+        >
+          View Project
+          <svg
+            className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
           >
-            詳細を見る
-          </a>
-        </div>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
       )}
     </div>
   );
