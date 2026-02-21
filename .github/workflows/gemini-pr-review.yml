@@ -90,9 +90,11 @@ jobs:
 
       - name: 'Geminiの出力をデバッグする'
         shell: bash
+        env:
+          GEMINI_RESPONSE: '${{ steps.gemini_pr_review.outputs.gemini-response }}'
         run: |
           echo "--- Geminiレスポンスここから ---"
-          echo "${{ steps.gemini_pr_review.outputs.gemini-response }}"
+          echo "${GEMINI_RESPONSE}"
           echo "--- Geminiレスポンスここまで ---"
 
       - name: 'Post Review Comment'
@@ -102,10 +104,10 @@ jobs:
           PR_NUMBER: '${{ steps.get_pr.outputs.pr_number }}'
           REVIEW: '${{ steps.gemini_pr_review.outputs.gemini-response }}'
         run: |
-          if [ -z "$REVIEW" ]; then
+          if [ -z "${REVIEW}" ]; then
             echo "::warning:: Gemini response was empty. No comment posted."
           else
-            gh pr comment "${PR_NUMBER}" --body "$REVIEW"
+            gh pr comment "${PR_NUMBER}" --body "${REVIEW}"
           fi
 
       - name: 'Post Too Large Comment'
