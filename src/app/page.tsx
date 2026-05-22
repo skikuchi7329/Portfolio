@@ -3,7 +3,7 @@ import About from '../components/About';
 import Works from '../components/Works';
 import { data, careerData } from '../../data/index';
 import Biography from '../components/Biography';
-import Career from '../components/Career';
+import CareerList from '../components/CareerList';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -56,15 +56,7 @@ export default function Page() {
       <section className="py-16">
         <SectionHeader id="career">Career</SectionHeader>
         <div className="mx-auto max-w-2xl">
-          {careerData.map(({ company, term, contents, details }) => (
-            <Career
-              key={company}
-              company={company}
-              term={term}
-              contents={contents}
-              details={details}
-            />
-          ))}
+          <CareerList items={careerData} initialVisibleCount={5} />
         </div>
       </section>
 
