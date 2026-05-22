@@ -56,7 +56,7 @@ export default function Page() {
       <section className="py-16">
         <SectionHeader id="career">Career</SectionHeader>
         <div className="mx-auto max-w-2xl">
-          <CareerList items={careerData} initialVisibleCount={5} />
+          <CareerList items={careerData} />
         </div>
       </section>
 

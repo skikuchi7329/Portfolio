@@ -15,15 +15,19 @@ type Props = {
   initialVisibleCount?: number;
 };
 
+const DEFAULT_INITIAL_VISIBLE_COUNT = 5;
+const YEAR_MONTH_ENCODING_BASE = 100;
+const INVALID_DATE_SORT_KEY = 0;
+
 const parseStartDate = (term: string): number => {
   const match = term.match(/(\d{4})\/(\d{1,2})/);
-  if (!match) return 0;
+  if (!match) return INVALID_DATE_SORT_KEY;
   const year = Number(match[1]);
   const month = Number(match[2]);
-  return year * 100 + month;
+  return year * YEAR_MONTH_ENCODING_BASE + month;
 };
 
-const CareerList = ({ items, initialVisibleCount = 5 }: Props) => {
+const CareerList = ({ items, initialVisibleCount = DEFAULT_INITIAL_VISIBLE_COUNT }: Props) => {
   const sortedItems = useMemo(
     () => [...items].sort((a, b) => parseStartDate(b.term) - parseStartDate(a.term)),
     [items]
