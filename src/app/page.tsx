@@ -23,7 +23,7 @@ export default function Page() {
   return (
     <div className="mx-auto max-w-5xl px-6">
       {/* Hero Section */}
-      <section className="relative flex min-h-[70vh] flex-col items-center justify-center py-20 text-center">
+      <section className="relative flex min-h-[78vh] flex-col items-center justify-center pb-8 pt-16 text-center">
         <div className="hero-glow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
 
         <div className="hero-enter relative flex flex-col items-center">
@@ -53,7 +53,7 @@ export default function Page() {
           <a
             href="#about"
             aria-label="Scroll down"
-            className="scroll-indicator mt-16 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle text-primary-400 no-underline transition-colors hover:border-border-accent hover:text-primary-400"
+            className="scroll-indicator mt-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle text-primary-400 no-underline transition-colors hover:border-border-accent hover:text-primary-400"
           >
             <svg
               className="h-4 w-4"
