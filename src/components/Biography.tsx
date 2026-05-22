@@ -2,7 +2,7 @@ import React from 'react';
 
 const Biography = () => {
   return (
-    <section className="w-full py-16">
+    <section id="biography" className="w-full scroll-mt-20 py-16">
       <div className="mx-auto max-w-2xl">
         <h2 className="gradient-text mb-8 text-center text-3xl font-bold">Biography</h2>
         <div className="glass-card space-y-5 rounded-2xl p-6 sm:p-8">

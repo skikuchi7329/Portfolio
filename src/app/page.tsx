@@ -5,6 +5,7 @@ import { data, careerData } from '../../data/index';
 import Biography from '../components/Biography';
 import CareerList from '../components/CareerList';
 import ScrollReveal from '../components/effects/ScrollReveal';
+import SectionArrow from '../components/SectionArrow';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -50,30 +51,20 @@ export default function Page() {
               View Works
             </a>
           </div>
-          <a
-            href="#about"
-            aria-label="Scroll down"
-            className="scroll-indicator mt-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-subtle text-primary-400 no-underline transition-colors hover:border-border-accent hover:text-primary-400"
-          >
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
+          <SectionArrow href="#about" label="Scroll to About" />
         </div>
       </section>
 
-      {/* About & Biography */}
+      {/* About */}
       <ScrollReveal>
         <About />
+        <SectionArrow href="#biography" label="Scroll to Biography" />
       </ScrollReveal>
+
+      {/* Biography */}
       <ScrollReveal delay={80}>
         <Biography />
+        <SectionArrow href="#career" label="Scroll to Career" />
       </ScrollReveal>
 
       {/* Career Section */}
@@ -83,6 +74,7 @@ export default function Page() {
           <div className="mx-auto max-w-2xl">
             <CareerList items={careerData} />
           </div>
+          <SectionArrow href="#works" label="Scroll to Works" />
         </section>
       </ScrollReveal>
 
