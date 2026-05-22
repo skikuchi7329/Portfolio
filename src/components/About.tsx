@@ -11,7 +11,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="w-full scroll-mt-20 py-20">
+    <section id="about" className="w-full scroll-mt-20 pb-16 pt-6">
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-10 md:flex-row md:items-start md:gap-14">
         {/* Profile Image */}
         <div className="shrink-0">

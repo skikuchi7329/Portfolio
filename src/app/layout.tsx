@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../components/layouts/Header';
 import Footer from '../components/layouts/Footer';
+import AmbientBackground from '../components/effects/AmbientBackground';
+import CursorSpotlight from '../components/effects/CursorSpotlight';
 import './globals.css';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -16,9 +18,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-grid-pattern font-sans text-text-primary antialiased">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <AmbientBackground />
+        <CursorSpotlight />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

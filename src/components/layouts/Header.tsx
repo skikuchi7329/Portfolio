@@ -13,19 +13,19 @@ const Header = () => {
         <nav className="flex items-center gap-6">
           <a
             href="#about"
-            className="text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
+            className="nav-link text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
           >
             About
           </a>
           <a
             href="#career"
-            className="text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
+            className="nav-link text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
           >
             Career
           </a>
           <a
             href="#works"
-            className="text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
+            className="nav-link text-sm text-text-secondary no-underline transition-colors hover:text-text-primary"
           >
             Works
           </a>
