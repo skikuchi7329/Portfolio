@@ -75,21 +75,3 @@ export const colors: Record<ColorToken, string> = Object.fromEntries(
 ) as Record<ColorToken, string>;
 
 export type Colors = typeof colors;
-
-/**
- * GitHub Linguist–style language identifier colors. Used as decorative dots
- * next to repo languages; these are content data rather than theme tokens,
- * so they do not switch with the active theme.
- */
-export const languageColors = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f1e05a',
-  React: '#61dafb',
-  'Next.js': '#000000',
-  'styled-components': '#db7093',
-  pug: '#a86454',
-  SCSS: '#c6538c',
-  CSS: '#563d7c',
-  HTML: '#e34c26',
-  fallback: '#8b949e',
-} as const;
