@@ -6,46 +6,47 @@ const About = () => {
   const profileItems = [
     { label: '名前', value: data.about.name },
     { label: '学歴', value: data.about.carrier },
-    { label: '趣味', value: data.about.hobby },
-    { label: '言語', value: data.about.language },
+    {
+      label: '言語',
+      value: Array.isArray(data.about.language)
+        ? data.about.language.join(' ')
+        : data.about.language,
+    },
+    {
+      label: '趣味',
+      value: Array.isArray(data.about.hobby) ? data.about.hobby.join(' ') : data.about.hobby,
+    },
   ];
 
   return (
-    <section id="about" className="w-full scroll-mt-20 pb-16 pt-6">
-      <div className="mx-auto flex max-w-2xl flex-col items-center gap-10 md:flex-row md:items-start md:gap-14">
-        {/* Profile Image */}
+    <div className="gh-card p-6 sm:p-8">
+      <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start sm:gap-8">
         <div className="shrink-0">
-          <div className="glow relative h-32 w-32 overflow-hidden rounded-full ring-2 ring-border-accent ring-offset-2 ring-offset-surface">
+          <div className="relative h-28 w-28 overflow-hidden rounded-full border border-border-default">
             <Image
               className="h-full w-full object-cover"
               alt="profile icon"
               src="/images/profileIcon.jpg"
-              width={128}
-              height={128}
+              width={112}
+              height={112}
+              priority
             />
           </div>
         </div>
 
-        {/* Profile Info */}
-        <div className="flex-1">
-          <h2 className="gradient-text mb-6 text-center text-3xl font-bold md:text-left">About</h2>
-
-          <dl className="space-y-4">
-            {profileItems.map((item) => (
-              <div
-                key={item.label}
-                className="glass-card rounded-lg px-4 py-3 sm:grid sm:grid-cols-[80px_1fr] sm:items-baseline sm:gap-4"
-              >
-                <dt className="text-xs font-semibold uppercase tracking-wider text-primary-400">
-                  {item.label}
-                </dt>
-                <dd className="mt-1 text-sm text-text-secondary sm:mt-0">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <dl className="flex-1 space-y-3">
+          {profileItems.map((item) => (
+            <div
+              key={item.label}
+              className="grid grid-cols-[64px_1fr] items-baseline gap-3 text-sm"
+            >
+              <dt className="font-semibold text-fg-muted">{item.label}</dt>
+              <dd className="text-fg-default">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
-    </section>
+    </div>
   );
 };
 

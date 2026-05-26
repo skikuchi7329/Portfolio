@@ -1,425 +1,186 @@
 @import 'tailwindcss';
 @config "../../tailwind.config.ts";
 
+/* ============================================================
+   Theme tokens
+   ------------------------------------------------------------
+   All color values come from `src/styles/colors.ts` (single source
+   of truth). At runtime, `app/layout.tsx` injects two blocks built
+   by `src/styles/colorVariables.ts`:
+
+     :root      { --color-…: light values }
+     html.dark  { --color-…: dark values  }
+
+   so referencing `var(--color-…)` here automatically flips with
+   the active theme.
+   ============================================================ */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-surface);
+  background-color: var(--color-canvas);
+  color: var(--color-fg-default);
   min-height: 100vh;
-  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Gradient text — blue→cyan→deep-blue shimmer */
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-300) 0%,
-    var(--color-accent-cyan) 45%,
-    var(--color-primary-500) 100%
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 9s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Glassmorphism card + mouse-tracking spotlight overlay */
-.glass-card {
-  position: relative;
-  background: var(--color-surface-card);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border-subtle);
+/* Theme transition (subtle) */
+body,
+header,
+.gh-card,
+.gh-btn {
   transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  overflow: hidden;
-  isolation: isolate;
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    480px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    var(--color-glow-primary-soft),
-    var(--color-glow-cyan-soft) 25%,
-    transparent 55%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 0;
+/* ============================================================
+   GitHub-like primitives
+   ============================================================ */
+
+/* Card (used for repo / section / sidebar) */
+.gh-card {
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
 }
 
-.glass-card > * {
-  position: relative;
-  z-index: 1;
+.gh-card-subtle {
+  background-color: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
 }
 
-.glass-card:hover::before {
-  opacity: 1;
-}
-
-.glass-card:hover {
-  background: var(--color-surface-card-hover);
-  border-color: var(--color-border-accent);
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px -10px var(--color-glow-btn-shadow);
-}
-
-/* Section fade-in (legacy utility) */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Scroll reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Profile image glow ring */
-.glow {
-  position: relative;
-}
-
-.glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-400),
-    var(--color-accent-cyan),
-    var(--color-accent-deep)
-  );
-  opacity: 0.55;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  filter: blur(10px);
-  animation: pulseGlow 5s ease-in-out infinite;
-}
-
-.glow:hover::before {
-  opacity: 0.95;
-}
-
-@keyframes pulseGlow {
-  0%,
-  100% {
-    opacity: 0.4;
-    filter: blur(10px);
-  }
-  50% {
-    opacity: 0.75;
-    filter: blur(14px);
-  }
-}
-
-/* Timeline connector */
-.timeline-item {
-  position: relative;
-  padding-left: 2rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.6rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-cyan));
-  box-shadow: 0 0 12px var(--color-glow-primary-strong);
-  z-index: 1;
-}
-
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 1.6rem;
-  width: 2px;
-  height: calc(100% - 0.6rem);
-  background: linear-gradient(to bottom, var(--color-glow-primary-medium), transparent);
-}
-
-.timeline-item:last-child::after {
-  display: none;
-}
-
-/* Subtle grid pattern */
-.bg-grid-pattern {
-  background-image: radial-gradient(circle at 1px 1px, var(--color-glow-grid-dot) 1px, transparent 0);
-  background-size: 40px 40px;
-}
-
-/* Tech badge */
-.tech-badge {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
+/* Button — default */
+.gh-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 5px 16px;
+  font-size: 14px;
   font-weight: 500;
-  background: var(--color-glow-badge-bg);
-  color: var(--color-primary-700);
-  border: 1px solid var(--color-glow-badge-border);
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    color 0.3s ease;
+  line-height: 20px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 6px;
+  background-color: var(--color-btn-bg);
+  color: var(--color-fg-default);
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
 }
 
-.tech-badge:hover {
-  background: var(--color-glow-badge-bg-hover);
-  border-color: var(--color-border-accent-strong);
-  color: var(--color-primary-800);
+.gh-btn:hover {
+  background-color: var(--color-btn-hover-bg);
+  border-color: var(--color-border-default);
 }
 
-/* Aurora ambient background — blue/cyan blobs over near-black */
-.aurora {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+/* Button — primary (GitHub green) */
+.gh-btn-primary {
+  background-color: var(--color-btn-primary-bg);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-canvas);
 }
 
-.aurora span {
-  position: absolute;
+.gh-btn-primary:hover {
+  background-color: var(--color-btn-primary-hover-bg);
+}
+
+/* Pill / Counter (e.g. "Public", language count) */
+.gh-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 1px solid var(--color-border-default);
+  border-radius: 2em;
+  color: var(--color-fg-muted);
+}
+
+/* Language color dot (used in repo cards) */
+.gh-lang-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.42;
-  will-change: transform;
-}
-
-.aurora span:nth-child(1) {
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle, var(--color-primary-500) 0%, transparent 70%);
-  top: -140px;
-  left: -120px;
-  animation: floatA 22s ease-in-out infinite;
-}
-
-.aurora span:nth-child(2) {
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, var(--color-accent-cyan) 0%, transparent 70%);
-  top: 22%;
-  right: -180px;
-  animation: floatB 28s ease-in-out infinite;
-  opacity: 0.35;
-}
-
-.aurora span:nth-child(3) {
-  width: 440px;
-  height: 440px;
-  background: radial-gradient(circle, var(--color-accent-deep) 0%, transparent 70%);
-  bottom: -120px;
-  left: 28%;
-  animation: floatC 26s ease-in-out infinite;
-  opacity: 0.55;
-}
-
-@keyframes floatA {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(120px, 90px) scale(1.1);
-  }
-  66% {
-    transform: translate(-40px, 140px) scale(0.9);
-  }
-}
-
-@keyframes floatB {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-100px, 70px) scale(0.95);
-  }
-  66% {
-    transform: translate(70px, -90px) scale(1.08);
-  }
-}
-
-@keyframes floatC {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(80px, -110px) scale(1.1);
-  }
-  66% {
-    transform: translate(-90px, -60px) scale(0.95);
-  }
-}
-
-/* Hero ambient glow */
-.hero-glow {
-  position: absolute;
-  width: 680px;
-  height: 680px;
-  max-width: 90vw;
-  max-height: 90vw;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--color-glow-hero-glow) 0%, transparent 65%);
-  filter: blur(60px);
-  pointer-events: none;
-  animation: pulseGlow 7s ease-in-out infinite;
-}
-
-/* Scroll indicator chevron */
-@keyframes scrollBounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 0.55;
-  }
-  50% {
-    transform: translateY(8px);
-    opacity: 1;
-  }
-}
-
-.scroll-indicator {
-  animation: scrollBounce 2.2s ease-in-out infinite;
-}
-
-/* Nav underline */
-.nav-link {
   position: relative;
+  top: 1px;
 }
 
-.nav-link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  height: 2px;
-  width: 100%;
-  background: linear-gradient(90deg, var(--color-primary-400), var(--color-accent-cyan));
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 2px;
-}
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-  transform-origin: left center;
-}
-
-/* Sequential hero entry */
-.hero-enter > * {
-  opacity: 0;
-  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-enter > *:nth-child(1) {
-  animation-delay: 0.05s;
-}
-.hero-enter > *:nth-child(2) {
-  animation-delay: 0.18s;
-}
-.hero-enter > *:nth-child(3) {
-  animation-delay: 0.32s;
-}
-.hero-enter > *:nth-child(4) {
-  animation-delay: 0.5s;
-}
-.hero-enter > *:nth-child(5) {
-  animation-delay: 0.7s;
-}
-
-/* CTA glow */
-.btn-glow {
+/* Nav link in header */
+.gh-nav-link {
   position: relative;
-  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-header-fg);
+  text-decoration: none;
+  border-radius: 6px;
 }
 
-.btn-glow::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    var(--color-primary-400),
-    var(--color-accent-cyan),
-    var(--color-primary-600)
-  );
-  opacity: 0;
-  filter: blur(14px);
-  transition: opacity 0.3s ease;
-  z-index: -1;
+.gh-nav-link:hover {
+  background-color: color-mix(in srgb, var(--color-header-fg) 12%, transparent);
 }
 
-.btn-glow:hover::before {
-  opacity: 0.8;
+/* Tab nav (Overview / Repositories ...) */
+.gh-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--color-fg-default);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.gh-tab:hover {
+  background-color: var(--color-canvas-subtle);
+  border-bottom-color: var(--color-border-default);
+}
+
+.gh-tab[aria-current='page'],
+.gh-tab.is-active {
+  font-weight: 600;
+  border-bottom-color: var(--color-accent-emphasis);
+}
+
+/* Section heading (h2) */
+.gh-section-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-fg-default);
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-muted);
+}
+
+/* Link */
+.gh-link {
+  color: var(--color-accent-fg);
+  text-decoration: none;
+}
+
+.gh-link:hover {
+  text-decoration: underline;
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .gradient-text,
-  .aurora span,
-  .hero-glow,
-  .glow::before,
-  .scroll-indicator,
-  .hero-enter > * {
-    animation: none !important;
-  }
-  .hero-enter > * {
-    opacity: 1 !important;
-  }
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
+  *,
+  *::before,
+  *::after {
     transition: none !important;
+    animation: none !important;
   }
 }

@@ -38,22 +38,18 @@ const CareerList = ({ items, initialVisibleCount = DEFAULT_INITIAL_VISIBLE_COUNT
   const visibleItems = expanded ? sortedItems : sortedItems.slice(0, initialVisibleCount);
 
   return (
-    <>
+    <div className="space-y-3">
       {visibleItems.map(({ company, term, contents, details }) => (
         <Career key={company} company={company} term={term} contents={contents} details={details} />
       ))}
       {hasMore && (
-        <div className="mt-4 flex justify-center">
-          <button
-            type="button"
-            onClick={() => setExpanded((prev) => !prev)}
-            className="rounded-full border border-border-accent bg-primary-500/10 px-6 py-2.5 text-sm font-medium text-primary-400 transition-all hover:bg-primary-500/20"
-          >
-            {expanded ? 'Show less' : 'Load more...'}
+        <div className="flex justify-center pt-1">
+          <button type="button" onClick={() => setExpanded((prev) => !prev)} className="gh-btn">
+            {expanded ? 'Show less' : `Show ${sortedItems.length - initialVisibleCount} more`}
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

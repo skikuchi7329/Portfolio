@@ -1,9 +1,10 @@
-import { colors } from './colors';
+import { themes } from './colors';
 
 /**
- * Build a CSS `:root { --color-…: …; }` block from the `colors` tokens so
- * `globals.css` can reference `var(--color-…)`. Keeps `colors.ts` as the
- * single source of truth.
+ * Build CSS `:root { --color-…: …; }` (light) and
+ * `html.dark { --color-…: … }` (dark) blocks from the `themes` tokens so
+ * `globals.css` can reference `var(--color-…)` and have it flip with the
+ * active theme. Keeps `colors.ts` as the single source of truth.
  */
 const toCssVarName = (path: string[]) => {
   const segments = path.map((segment) => (segment === 'DEFAULT' ? '' : segment)).filter(Boolean);
@@ -20,8 +21,21 @@ const flatten = (value: unknown, path: string[] = []): Array<{ name: string; val
   return [];
 };
 
-export const colorCssVariables = flatten(colors)
-  .map(({ name, value }) => `  ${name}: ${value};`)
-  .join('\n');
+const toDeclarations = (palette: Record<string, unknown>) =>
+  flatten(palette)
+    .map(({ name, value }) => `  ${name}: ${value};`)
+    .join('\n');
 
-export const colorRootCss = `:root {\n${colorCssVariables}\n}`;
+const lightDeclarations = toDeclarations(themes.light);
+const darkDeclarations = toDeclarations(themes.dark);
+
+export const colorCssVariables = lightDeclarations;
+
+export const colorRootCss = `:root {
+  color-scheme: light;
+${lightDeclarations}
+}
+html.dark {
+  color-scheme: dark;
+${darkDeclarations}
+}`;
