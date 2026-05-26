@@ -9,16 +9,14 @@ type Props = {
 
 const Career = ({ company, term, contents, details }: Props) => {
   return (
-    <div className="timeline-item pb-8">
-      <div className="glass-card rounded-xl p-5">
-        <div className="mb-2 flex flex-wrap items-center gap-2">
-          <h3 className="text-base font-semibold text-text-primary">{company}</h3>
-          <span className="tech-badge">{term}</span>
-        </div>
-        <p className="mb-2 text-sm font-medium text-primary-400">{contents}</p>
-        <p className="text-sm leading-relaxed text-text-muted">{details}</p>
+    <article className="gh-card p-4">
+      <div className="flex flex-wrap items-baseline justify-between gap-2">
+        <h3 className="text-sm font-semibold text-fg-default">{company}</h3>
+        <span className="gh-pill">{term}</span>
       </div>
-    </div>
+      <p className="mt-1 text-sm font-medium text-accent-fg">{contents}</p>
+      <p className="mt-2 text-xs leading-relaxed text-fg-muted">{details}</p>
+    </article>
   );
 };
 
