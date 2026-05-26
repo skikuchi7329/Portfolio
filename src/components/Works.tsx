@@ -1,4 +1,5 @@
 import React from 'react';
+import { languageColors } from '../styles/colors';
 
 type Props = {
   title: string;
@@ -7,19 +8,8 @@ type Props = {
   language: string;
 };
 
-const langColor: Record<string, string> = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f1e05a',
-  React: '#61dafb',
-  'Next.js': '#000000',
-  'styled-components': '#db7093',
-  pug: '#a86454',
-  SCSS: '#c6538c',
-  CSS: '#563d7c',
-  HTML: '#e34c26',
-};
-
-const dotFor = (lang: string) => langColor[lang] ?? '#8b949e';
+const dotFor = (lang: string) =>
+  (languageColors as Record<string, string>)[lang] ?? languageColors.fallback;
 
 const Works = ({ title, content, language, link }: Props) => {
   const languages = language.split('/').map((l) => l.trim());

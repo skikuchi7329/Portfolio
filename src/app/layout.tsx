@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/layouts/Header';
 import Footer from '../components/layouts/Footer';
+import { colorRootCss } from '../styles/colorVariables';
 import './globals.css';
 
 const themeInitScript = `
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
+        <style dangerouslySetInnerHTML={{ __html: colorRootCss }} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="bg-canvas text-fg-default antialiased">

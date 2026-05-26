@@ -1,97 +1,28 @@
 @import 'tailwindcss';
+@config "../../tailwind.config.ts";
 
 /* ============================================================
-   Theme tokens — exposed to Tailwind utilities via @theme.
-   Actual values are defined as CSS variables on :root / html.dark
-   so the same utility (e.g. bg-canvas) flips with the theme.
+   Theme tokens
+   ------------------------------------------------------------
+   All color values come from `src/styles/colors.ts` (single source
+   of truth). At runtime, `app/layout.tsx` injects two blocks built
+   by `src/styles/colorVariables.ts`:
+
+     :root      { --color-…: light values }
+     html.dark  { --color-…: dark values  }
+
+   so referencing `var(--color-…)` here automatically flips with
+   the active theme.
    ============================================================ */
-@theme {
-  --font-sans:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', 'Noto Sans JP', Helvetica, Arial,
-    sans-serif;
-  --font-mono:
-    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
-  --color-canvas: var(--canvas);
-  --color-canvas-subtle: var(--canvas-subtle);
-  --color-canvas-inset: var(--canvas-inset);
-  --color-fg-default: var(--fg-default);
-  --color-fg-muted: var(--fg-muted);
-  --color-fg-subtle: var(--fg-subtle);
-  --color-border-default: var(--border-default);
-  --color-border-muted: var(--border-muted);
-  --color-accent-fg: var(--accent-fg);
-  --color-accent-emphasis: var(--accent-emphasis);
-  --color-accent-subtle: var(--accent-subtle);
-  --color-success-fg: var(--success-fg);
-  --color-btn-bg: var(--btn-bg);
-  --color-btn-hover-bg: var(--btn-hover-bg);
-  --color-btn-primary-bg: var(--btn-primary-bg);
-  --color-btn-primary-hover-bg: var(--btn-primary-hover-bg);
-  --color-header-bg: var(--header-bg);
-  --color-header-fg: var(--header-fg);
-}
-
-/* Light theme (white bg, black text) */
-:root {
-  --canvas: #ffffff;
-  --canvas-subtle: #f6f8fa;
-  --canvas-inset: #eff2f5;
-  --fg-default: #000000;
-  --fg-muted: #57606a;
-  --fg-subtle: #6e7781;
-  --border-default: #d0d7de;
-  --border-muted: #d8dee4;
-  --accent-fg: #0969da;
-  --accent-emphasis: #0969da;
-  --accent-subtle: #ddf4ff;
-  --success-fg: #1a7f37;
-  --btn-bg: #f6f8fa;
-  --btn-hover-bg: #eff2f5;
-  --btn-primary-bg: #1f883d;
-  --btn-primary-hover-bg: #1a7f37;
-  --header-bg: #ffffff;
-  --header-fg: #000000;
-
-  color-scheme: light;
-}
-
-/* Dark theme (black bg, white text) */
-html.dark {
-  --canvas: #000000;
-  --canvas-subtle: #0d1117;
-  --canvas-inset: #010409;
-  --fg-default: #ffffff;
-  --fg-muted: #9198a1;
-  --fg-subtle: #7d8590;
-  --border-default: #30363d;
-  --border-muted: #21262d;
-  --accent-fg: #58a6ff;
-  --accent-emphasis: #1f6feb;
-  --accent-subtle: rgba(56, 139, 253, 0.15);
-  --success-fg: #3fb950;
-  --btn-bg: #21262d;
-  --btn-hover-bg: #30363d;
-  --btn-primary-bg: #238636;
-  --btn-primary-hover-bg: #2ea043;
-  --header-bg: #000000;
-  --header-fg: #ffffff;
-
-  color-scheme: dark;
-}
-
-/* ============================================================
-   Base
-   ============================================================ */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--canvas);
-  color: var(--fg-default);
+  background-color: var(--color-canvas);
+  color: var(--color-fg-default);
   min-height: 100vh;
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -113,14 +44,14 @@ header,
 
 /* Card (used for repo / section / sidebar) */
 .gh-card {
-  background-color: var(--canvas);
-  border: 1px solid var(--border-default);
+  background-color: var(--color-canvas);
+  border: 1px solid var(--color-border-default);
   border-radius: 6px;
 }
 
 .gh-card-subtle {
-  background-color: var(--canvas-subtle);
-  border: 1px solid var(--border-default);
+  background-color: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border-default);
   border-radius: 6px;
 }
 
@@ -134,29 +65,29 @@ header,
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--color-border-default);
   border-radius: 6px;
-  background-color: var(--btn-bg);
-  color: var(--fg-default);
+  background-color: var(--color-btn-bg);
+  color: var(--color-fg-default);
   cursor: pointer;
   user-select: none;
   text-decoration: none;
 }
 
 .gh-btn:hover {
-  background-color: var(--btn-hover-bg);
-  border-color: var(--border-default);
+  background-color: var(--color-btn-hover-bg);
+  border-color: var(--color-border-default);
 }
 
 /* Button — primary (GitHub green) */
 .gh-btn-primary {
-  background-color: var(--btn-primary-bg);
-  border: 1px solid rgba(31, 35, 40, 0.15);
-  color: #ffffff;
+  background-color: var(--color-btn-primary-bg);
+  border: 1px solid var(--color-border-default);
+  color: var(--color-canvas);
 }
 
 .gh-btn-primary:hover {
-  background-color: var(--btn-primary-hover-bg);
+  background-color: var(--color-btn-primary-hover-bg);
 }
 
 /* Pill / Counter (e.g. "Public", language count) */
@@ -167,9 +98,9 @@ header,
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--color-border-default);
   border-radius: 2em;
-  color: var(--fg-muted);
+  color: var(--color-fg-muted);
 }
 
 /* Language color dot (used in repo cards) */
@@ -190,13 +121,13 @@ header,
   padding: 6px 8px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--header-fg);
+  color: var(--color-header-fg);
   text-decoration: none;
   border-radius: 6px;
 }
 
 .gh-nav-link:hover {
-  background-color: color-mix(in srgb, var(--header-fg) 12%, transparent);
+  background-color: color-mix(in srgb, var(--color-header-fg) 12%, transparent);
 }
 
 /* Tab nav (Overview / Repositories ...) */
@@ -206,7 +137,7 @@ header,
   gap: 6px;
   padding: 8px 16px;
   font-size: 14px;
-  color: var(--fg-default);
+  color: var(--color-fg-default);
   text-decoration: none;
   border-bottom: 2px solid transparent;
   border-top-left-radius: 6px;
@@ -214,49 +145,34 @@ header,
 }
 
 .gh-tab:hover {
-  background-color: var(--canvas-subtle);
-  border-bottom-color: var(--border-default);
+  background-color: var(--color-canvas-subtle);
+  border-bottom-color: var(--color-border-default);
 }
 
 .gh-tab[aria-current='page'],
 .gh-tab.is-active {
   font-weight: 600;
-  border-bottom-color: #fd8c73;
+  border-bottom-color: var(--color-accent-emphasis);
 }
 
 /* Section heading (h2) */
 .gh-section-heading {
   font-size: 16px;
   font-weight: 600;
-  color: var(--fg-default);
+  color: var(--color-fg-default);
   margin: 0;
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--border-muted);
+  border-bottom: 1px solid var(--color-border-muted);
 }
 
 /* Link */
 .gh-link {
-  color: var(--accent-fg);
+  color: var(--color-accent-fg);
   text-decoration: none;
 }
 
 .gh-link:hover {
   text-decoration: underline;
-}
-
-/* Contribution-graph-like decorative grid (used as a hero accent) */
-.gh-contrib {
-  display: grid;
-  grid-template-columns: repeat(52, 11px);
-  grid-auto-rows: 11px;
-  gap: 3px;
-}
-
-.gh-contrib span {
-  width: 11px;
-  height: 11px;
-  border-radius: 2px;
-  background-color: var(--border-muted);
 }
 
 /* Reduced motion */
