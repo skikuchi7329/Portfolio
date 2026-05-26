@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { colors } from './src/styles/colors';
 
 const config: Config = {
   content: [
@@ -6,5 +7,13 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  theme: {
+    extend: {
+      colors,
+      fontFamily: {
+        sans: ['Inter', 'Noto Sans JP', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+    },
+  },
 };
 export default config;
