@@ -8,7 +8,7 @@ import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Shohei Kikuchi | Frontend Engineer',
-  description: 'フロントエンドエンジニア 菊池翔平のポートフォリオサイト',
+  description: 'フロントエンドエンジニア 菊地昇平のポートフォリオサイト',
 };
 
 const SectionHeading = ({ id, children }: { id: string; children: React.ReactNode }) => (
