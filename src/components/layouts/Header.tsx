@@ -9,9 +9,8 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-border-default bg-header-bg backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-[72rem] items-baseline gap-5 px-6 py-3.5 sm:px-10">
         <Link href="/" className="font-serif text-base text-header-fg no-underline">
-          {profile.name}
+          {profile.nameLatin}
         </Link>
-        <span className="label hidden sm:inline">{profile.nameLatin}</span>
 
         <nav className="ml-auto hidden items-baseline gap-5 sm:flex">
           {sections.map(({ no, id, title }) => (

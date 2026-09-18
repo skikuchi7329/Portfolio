@@ -60,12 +60,9 @@ export default function Page() {
             <p className="label m-0">
               {profile.role} / {profile.base}
             </p>
-            <h1 className="mt-5 font-serif text-[clamp(3.25rem,11vw,7rem)] leading-[0.92] tracking-tight text-fg-default">
-              {profile.name}
-            </h1>
-            <p className="mt-3 font-serif text-[clamp(1.25rem,3vw,2rem)] italic leading-none text-fg-muted">
+            <h1 className="mt-6 font-serif text-[clamp(3.5rem,12vw,7.5rem)] leading-[0.88] tracking-tight text-fg-default">
               {profile.nameLatin}
-            </p>
+            </h1>
           </div>
 
           <dl className="m-0 md:col-span-4 md:self-end">

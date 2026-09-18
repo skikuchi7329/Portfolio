@@ -28,7 +28,7 @@ const Profile = () => {
           height={352}
           priority
         />
-        <figcaption className="label mt-2">{profile.nameLatin}</figcaption>
+        <figcaption className="label mt-2">{profile.name}</figcaption>
       </figure>
 
       <dl className="m-0">
