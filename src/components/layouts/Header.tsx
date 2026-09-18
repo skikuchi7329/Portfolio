@@ -1,34 +1,30 @@
 import Link from 'next/link';
 import React from 'react';
 import ThemeToggle from '../ThemeToggle';
+import { sections } from '../../constants/sections';
+import { profile } from '../../../data';
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 border-b border-border-default bg-header-bg text-header-fg">
-      <div className="mx-auto flex max-w-5xl items-center gap-6 px-4 py-3 sm:px-6">
-        <Link
-          href="/"
-          className="text-base font-semibold tracking-tight text-header-fg no-underline hover:opacity-80"
-        >
-          S.Kikuchi
+    <header className="sticky top-0 z-50 border-b border-border-default bg-header-bg backdrop-blur-md">
+      <div className="mx-auto flex w-full max-w-[72rem] items-baseline gap-5 px-6 py-3.5 sm:px-10">
+        <Link href="/" className="font-serif text-base text-header-fg no-underline">
+          {profile.name}
         </Link>
+        <span className="label hidden sm:inline">{profile.nameLatin}</span>
 
-        <nav className="ml-auto flex items-center gap-1">
-          <a href="#about" className="gh-nav-link">
-            About
-          </a>
-          <a href="#biography" className="gh-nav-link">
-            Biography
-          </a>
-          <a href="#career" className="gh-nav-link">
-            Career
-          </a>
-          <a href="#works" className="gh-nav-link">
-            Works
-          </a>
+        <nav className="ml-auto hidden items-baseline gap-5 sm:flex">
+          {sections.map(({ no, id, title }) => (
+            <a key={id} href={`#${id}`} className="label hover:text-accent-fg">
+              <span className="num mr-1.5">{no}</span>
+              {title}
+            </a>
+          ))}
         </nav>
 
-        <ThemeToggle />
+        <div className="ml-auto sm:ml-0">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );

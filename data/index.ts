@@ -1,81 +1,192 @@
-export const careerData = [
+/**
+ * Single source of truth for every piece of content on the site.
+ * Previously split between `data.json` and this file; unified so that
+ * each entry is typed and can be rendered consistently.
+ */
+
+export type Profile = {
+  name: string;
+  nameLatin: string;
+  role: string;
+  base: string;
+  education: string;
+  major: string;
+  stack: string[];
+  interests: string[];
+  bio: string[];
+  links: { label: string; href: string }[];
+};
+
+export type CareerEntry = {
+  company: string;
+  /** `YYYY-MM` */
+  start: string;
+  /** `YYYY-MM`, or `null` while ongoing */
+  end: string | null;
+  /** Position held — the spine of the career narrative */
+  role: string;
+  summary: string;
+  details: string;
+  stack: string[];
+  /** Engineering team size, when it is known */
+  team?: string;
+};
+
+export type Work = {
+  title: string;
+  year: string;
+  role: string;
+  content: string;
+  stack: string[];
+  link: string;
+};
+
+export const profile: Profile = {
+  name: '菊地 昇平',
+  nameLatin: 'Shohei Kikuchi',
+  role: 'フロントエンドエンジニア',
+  base: '東京',
+  education: '東京理科大学 理学部第二部 数学科',
+  major: '離散数学',
+  stack: ['TypeScript', 'React', 'Next.js', 'Panda CSS', 'Tailwind CSS', 'Storybook'],
+  interests: ['お酒', 'ゲーム', 'アニメ', '麻雀', '温泉', 'ダイビング', 'スキー'],
+  bio: [
+    '理科大数学科卒のエンジニア。在学時代の専攻は離散数学。',
+    '在学中に友人のフロントエンドエンジニアを師として、独学で勉強を進め、ホームページ作成の実務を経験。',
+    'その後、インターンのフロントエンドエンジニアとしてWEBサービスの開発に従事。',
+    'TypeScript, React, Next.js 等のモダンな技術を中心に日々勉強中。',
+  ],
+  links: [
+    { label: 'GitHub', href: 'https://github.com/skikuchi7329' },
+    { label: 'X', href: 'https://twitter.com/skikuchi7329' },
+  ],
+};
+
+export const career: CareerEntry[] = [
   {
     company: '株式会社 EFGTechnologies',
-    term: '2021/04~2021/06',
-    contents: '英会話Weblioのホームページリニューアル',
+    start: '2021-04',
+    end: '2021-06',
+    role: 'マークアップコーダー',
+    summary: '英会話Weblioのホームページリニューアル',
     details:
-      'フロントエンドエンジニアである友人の紹介で受けた初めての実務案件。開発チームのは6人で、私はマークアップコーダーとしてpug,SCSS,JavaScriptを使用してマークアップを行いました。',
+      'フロントエンドエンジニアである友人の紹介で受けた初めての実務案件。開発チームは6人で、私はマークアップコーダーとして pug, SCSS, JavaScript を使用してマークアップを行いました。',
+    stack: ['pug', 'SCSS', 'JavaScript'],
+    team: '6名',
   },
   {
     company: '合同会社じれったい',
-    term: '2022/07~2022/12',
-    contents: '会社ホームページの作成',
+    start: '2022-07',
+    end: '2022-12',
+    role: 'フロントエンド',
+    summary: '会社ホームページの作成',
     details:
-      'フロントエンドエンジニアである友人の紹介で参加させてもらった合同会社。様々な分野で活躍するエンジニアやデザイナーが集まっていて刺激を受ける。Reactを使用して、ホームページの作成を手伝った。',
+      'フロントエンドエンジニアである友人の紹介で参加させてもらった合同会社。様々な分野で活躍するエンジニアやデザイナーが集まっていて刺激を受ける。React を使用して、ホームページの作成を手伝った。',
+    stack: ['React', 'styled-components'],
   },
   {
     company: '株式会社co-nect',
-    term: '2023/04~2024/04',
-    contents: 'shopifyにおけるマークアップ及びコーディング',
+    start: '2023-04',
+    end: '2024-04',
+    role: 'フロントエンド',
+    summary: 'Shopify テーマの実装',
     details:
-      '株式会社EFGのつながりで、受けた案件。shopifyのホームページ作成がメインで、CSSやJavaScriptを使用したテーマの編集や、Liquidを使ったセクションの作成を行った。',
+      '株式会社EFGのつながりで受けた案件。Shopify のホームページ作成がメインで、CSS や JavaScript を使用したテーマの編集や、Liquid を使ったセクションの作成を行った。',
+    stack: ['Shopify', 'Liquid', 'CSS', 'JavaScript'],
   },
   {
     company: '株式会社天久保',
-    term: '2023/10~現在',
-    contents: 'shopifyにおけるマークアップ及びコーディング',
-    details: 'wordpressを主に使用した、自作テーマの作成、環境構築',
+    start: '2023-10',
+    end: null,
+    role: 'フロントエンド',
+    summary: 'WordPress 自作テーマの作成・環境構築',
+    details: 'WordPress を主に使用した、自作テーマの作成、環境構築。',
+    stack: ['WordPress', 'PHP', 'JavaScript'],
   },
   {
-    company: '(株)STORY',
-    term: '2024/06~2025/02',
-    contents: '中学受験コベツバの開発',
+    company: '株式会社STORY',
+    start: '2024-06',
+    end: '2025-02',
+    role: 'フロントエンド',
+    summary: '中学受験コベツバの開発',
     details:
-      '5~8人程度の少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装,テストコードの実装を行う。言語はNext.js+TypeScriptで、フロントエンド先行の開発では、mswとstorybookを使用して開発をおこなった。',
+      '少数精鋭のエンジニアチーム。フロントエンドエンジニアとして各ページの実装、テストコードの実装を行う。言語は Next.js + TypeScript で、フロントエンド先行の開発では msw と Storybook を使用して開発を行った。',
+    stack: ['Next.js', 'TypeScript', 'msw', 'Storybook'],
+    team: '5〜8名',
   },
   {
     company: '株式会社Hakky',
-    term: '2025/02~現在',
-    contents: 'Hakky HandbookのNextJS移行/保守・運用/新規機能の追加',
+    start: '2025-02',
+    end: null,
+    role: 'フロントエンド',
+    summary: 'Hakky Handbook の Next.js 移行・保守運用・新規機能開発',
     details:
-      '10人程度のフロントエンドエンジニアチーム。フロントエンドエンジニアとして各ページの実装,保守・運用, GA4+Clarityの導入, 各コンポーネントの実装, チーム運営等々。開発環境は、NextJS+TypeScript+PandaCSS+Strapi',
+      'フロントエンドエンジニアチームの一員として各ページの実装、保守・運用、GA4 + Clarity の導入、各コンポーネントの実装、チーム運営等々を担当。開発環境は Next.js + TypeScript + Panda CSS + Strapi。',
+    stack: ['Next.js', 'TypeScript', 'Panda CSS', 'Strapi'],
+    team: '10名',
   },
   {
     company: '株式会社ルートチーム',
-    term: '2025/05~現在',
-    contents: 'One Streamの新規機能の追加',
+    start: '2025-05',
+    end: null,
+    role: '設計〜実装リード',
+    summary: 'One Stream の新規機能開発',
     details:
-      '15人程度のエンジニアチーム。ワークフロー機能に新しいトリガーおよびアクションの追加、新規エンティティ「記事配信機能」を設計から実装までリーダーとして担う、新人へのキャッチアップ支援、随時バグ修正等々。開発環境はNextJS+TypeScript',
+      'ワークフロー機能への新しいトリガー・アクションの追加、新規エンティティ「記事配信機能」を設計から実装までリーダーとして担当。新人へのキャッチアップ支援、随時バグ修正等々。開発環境は Next.js + TypeScript。',
+    stack: ['Next.js', 'TypeScript'],
+    team: '15名',
   },
 ];
 
-export const data = [
+export const works: Work[] = [
   {
-    title: 'This site.',
+    title: 'One Stream',
+    year: '2025',
+    role: '設計 / 実装リード',
     content:
-      'このポートフォリオサイトは、個人開発しました。2025.03 Next13からNext15(app router)にバージョンアップ済み。',
-    language: 'TypeScript/Next.js/styled-components',
+      'ワークフロー機能への新規トリガー・アクションの追加と、新規エンティティ「記事配信機能」の設計から実装までをリーダーとして担当。',
+    stack: ['Next.js', 'TypeScript'],
     link: '',
   },
   {
-    title: 'jirettai.com',
-    content:
-      '合同会社じれったいのホームページで、私はフロントエンドエンジニアとして、このホームページ作成に携わりました。',
-    language: 'JavaScript/React/styled-components',
-    link: 'https://jirettai.com/',
-  },
-  {
-    title: 'Weblio英会話のLP',
-    content:
-      '私の初の実務経験は、このWeblio英会話のLP作成でした。フロントエンドエンジニアとして主にマークアップを担当しました。',
-    language: 'pug/SCSS/JavaScript',
-    link: 'https://eikaiwa.weblio.jp/',
+    title: 'Hakky Handbook',
+    year: '2025',
+    role: 'フロントエンド',
+    content: 'Next.js への移行と保守・運用、コンポーネント実装、GA4 + Clarity の導入までを担当。',
+    stack: ['Next.js', 'TypeScript', 'Panda CSS', 'Strapi'],
+    link: '',
   },
   {
     title: 'スロシミュ',
+    year: '2024',
+    role: '個人開発',
     content:
-      '趣味で開発した、実際に日本に存在するスロットマシーン(回胴式遊戯機)のシミュレーションができるWEBアプリです。',
-    language: 'React/TypeScript',
+      '実在するスロットマシーン（回胴式遊技機）のシミュレーションができる WEB アプリ。趣味で開発。',
+    stack: ['React', 'TypeScript'],
     link: 'https://slot-simulator.vercel.app/',
+  },
+  {
+    title: 'jirettai.com',
+    year: '2022',
+    role: 'フロントエンド',
+    content: '合同会社じれったいのコーポレートサイト。フロントエンドの実装を担当。',
+    stack: ['React', 'styled-components'],
+    link: 'https://jirettai.com/',
+  },
+  {
+    title: 'Weblio英会話 LP',
+    year: '2021',
+    role: 'マークアップ',
+    content: '初めての実務案件。6人の開発チームでマークアップを担当した。',
+    stack: ['pug', 'SCSS', 'JavaScript'],
+    link: 'https://eikaiwa.weblio.jp/',
+  },
+  {
+    title: 'This site',
+    year: '2025',
+    role: '個人開発',
+    content: 'このポートフォリオサイト。2025.03 に Next 13 から Next 15（App Router）へ移行済み。',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://github.com/skikuchi7329/portfolio',
   },
 ];

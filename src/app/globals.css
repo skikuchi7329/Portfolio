@@ -25,158 +25,156 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-underline-offset: 0.2em;
+}
+
+::selection {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-fg-default);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   Editorial primitives
+   ------------------------------------------------------------
+   The page is built from rules (罫線) and grid position, not from
+   boxes: there is deliberately no `.card` here.
+   ============================================================ */
+
+/* Hairline rule — the main structural device of the layout. */
+.rule {
+  border-top: 1px solid var(--color-border-default);
+}
+
+/* Heavier rule, used once per page level to open a section band. */
+.rule-strong {
+  border-top: 1px solid var(--color-border-strong);
+}
+
+/* Comfortable measure for running Japanese text (~38 chars). */
+.measure {
+  max-width: 38em;
+}
+
+/* Dates, counts and section numbers keep the same column width. */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Link that reads as body copy until it is used. */
+.linkline {
+  color: var(--color-fg-default);
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-border-strong), var(--color-border-strong));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 1px;
+  transition: background-size 0.25s ease;
+}
+
+.linkline:hover {
+  color: var(--color-accent-fg);
+  background-image: linear-gradient(var(--color-accent-fg), var(--color-accent-fg));
+}
+
+/* Small mono label (section numbers, dates, stack). */
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--color-fg-subtle);
+}
+
+/* Inline stack / tag — a rule, not a pill. */
+.tag {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+}
+
+.tag + .tag::before {
+  content: '·';
+  margin: 0 0.45em;
+  color: var(--color-fg-subtle);
+}
+
+/* Quiet, text-shaped button (Career detail toggles). */
+.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  color: var(--color-fg-subtle);
+  background: var(--color-btn-bg);
+  border: 0;
+  padding: 0.25rem 0;
+  cursor: pointer;
+}
+
+.btn-quiet:hover {
+  color: var(--color-accent-fg);
+}
+
+/* Marker for an ongoing engagement. */
+.now-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-accent-fg);
+  vertical-align: 0.15em;
+}
+
+/* ============================================================
+   Motion — exactly one idea: content rises as it enters the
+   viewport. CSS-only (scroll-driven animations); browsers without
+   support simply render the final state.
+   ============================================================ */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rise {
+      animation: rise-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Theme transition (subtle) */
 body,
-header,
-.gh-card,
-.gh-btn {
+header {
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease;
 }
 
-/* ============================================================
-   GitHub-like primitives
-   ============================================================ */
-
-/* Card (used for repo / section / sidebar) */
-.gh-card {
-  background-color: var(--color-canvas);
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-}
-
-.gh-card-subtle {
-  background-color: var(--color-canvas-subtle);
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-}
-
-/* Button — default */
-.gh-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.375rem;
-  padding: 5px 16px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  border: 1px solid var(--color-border-default);
-  border-radius: 6px;
-  background-color: var(--color-btn-bg);
-  color: var(--color-fg-default);
-  cursor: pointer;
-  user-select: none;
-  text-decoration: none;
-}
-
-.gh-btn:hover {
-  background-color: var(--color-btn-hover-bg);
-  border-color: var(--color-border-default);
-}
-
-/* Button — primary (GitHub green) */
-.gh-btn-primary {
-  background-color: var(--color-btn-primary-bg);
-  border: 1px solid var(--color-border-default);
-  color: var(--color-canvas);
-}
-
-.gh-btn-primary:hover {
-  background-color: var(--color-btn-primary-hover-bg);
-}
-
-/* Pill / Counter (e.g. "Public", language count) */
-.gh-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 7px;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-  border: 1px solid var(--color-border-default);
-  border-radius: 2em;
-  color: var(--color-fg-muted);
-}
-
-/* Language color dot (used in repo cards) */
-.gh-lang-dot {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  position: relative;
-  top: 1px;
-}
-
-/* Nav link in header */
-.gh-nav-link {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 8px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-header-fg);
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.gh-nav-link:hover {
-  background-color: color-mix(in srgb, var(--color-header-fg) 12%, transparent);
-}
-
-/* Tab nav (Overview / Repositories ...) */
-.gh-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  font-size: 14px;
-  color: var(--color-fg-default);
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-}
-
-.gh-tab:hover {
-  background-color: var(--color-canvas-subtle);
-  border-bottom-color: var(--color-border-default);
-}
-
-.gh-tab[aria-current='page'],
-.gh-tab.is-active {
-  font-weight: 600;
-  border-bottom-color: var(--color-accent-emphasis);
-}
-
-/* Section heading (h2) */
-.gh-section-heading {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-fg-default);
-  margin: 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-border-muted);
-}
-
-/* Link */
-.gh-link {
-  color: var(--color-accent-fg);
-  text-decoration: none;
-}
-
-.gh-link:hover {
-  text-decoration: underline;
-}
-
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
