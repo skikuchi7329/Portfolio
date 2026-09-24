@@ -97,7 +97,7 @@ export const career: CareerEntry[] = [
   {
     company: '株式会社天久保',
     start: '2023-10',
-    end: null,
+    end: '2024-03',
     role: 'フロントエンド',
     summary: 'WordPress 自作テーマの作成・環境構築',
     details: 'WordPress を主に使用した、自作テーマの作成、環境構築。',
