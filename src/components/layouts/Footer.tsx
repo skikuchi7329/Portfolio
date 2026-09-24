@@ -1,28 +1,23 @@
 import React from 'react';
-import Link from 'next/link';
+import { profile } from '../../../data';
 
 const Footer = () => {
   return (
-    <footer className="mt-16 border-t border-border-default bg-canvas">
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-fg-muted sm:flex-row">
-        <p>&copy; 2025 Shohei Kikuchi</p>
-        <nav className="flex items-center gap-4">
-          <Link
-            href="https://github.com/skikuchi7329"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gh-link"
-          >
-            GitHub
-          </Link>
-          <Link
-            href="https://twitter.com/skikuchi7329"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="gh-link"
-          >
-            X (Twitter)
-          </Link>
+    <footer className="border-t border-border-strong">
+      <div className="mx-auto flex w-full max-w-[72rem] flex-col gap-3 px-6 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:px-10">
+        <p className="label num m-0">© 2025 {profile.nameLatin}</p>
+        <nav className="flex gap-6">
+          {profile.links.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label hover:text-accent-fg"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
       </div>
     </footer>
